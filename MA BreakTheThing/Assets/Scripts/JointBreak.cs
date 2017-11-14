@@ -10,7 +10,7 @@ public class JointBreak : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        ps = GameObject.FindGameObjectWithTag("GameController").GetComponent<PointsSystem>();
+        ps = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PointsSystem>();
         fj = GetComponent<FixedJoint>();      
 	}
 	

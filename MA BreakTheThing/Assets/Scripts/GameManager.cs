@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 	// Use this for initialization
 	void Start ()
-    {
+    {        
         //set the timescale to 1 to ensure no wierd stuff happens with time
         Time.timeScale = 1;
 	}
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SceneReset()
     {       
-        SceneManager.LoadScene("prototype 'splosion");
+        SceneManager.LoadScene("Level 1");
     }
 
     /// <summary>
@@ -33,6 +33,14 @@ public class GameManager : MonoBehaviour
     public void SlowMo()
     {
         StartCoroutine(SlowMo(0.3f, 0.15f, 2f));
+    }
+
+    /// <summary>
+    /// change the view from first to third person and vice versa
+    /// </summary>
+    public void ChangeView()
+    {
+        Touch.isFirstPerson = !Touch.isFirstPerson;
     }
 
 

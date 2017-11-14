@@ -14,7 +14,7 @@ public class Touch : MonoBehaviour
     /// <summary>
     /// is the player in first person mode
     /// </summary>
-    bool isFirstPerson = false;
+    public static bool isFirstPerson = false;
 
     /// <summary>
     /// the rotation speed of the camera
@@ -67,15 +67,24 @@ public class Touch : MonoBehaviour
     public int maxExplosives = 3;
 
 
+    private Gyroscope gyro;
 
-    private float vertical = 0;
-    private float horizontal = 0;
+    /// <summary>
+    /// quaternion to multiply the gyro rotation by
+    /// </summary>
+    private Quaternion rot;
 
-    // Use this for initialization
-    //void Start()
-    //{
+    //Use this for initialization
 
-    //}
+    void Start()
+    {
+        //check if phone supports gyro
+        if (SystemInfo.supportsGyroscope)
+        {
+            gyro = Input.gyro;
+            rot = new Quaternion(0, 0, 1, 0);
+        }
+    }
 
     // Update is called once per frame
     void Update ()
@@ -142,71 +151,53 @@ public class Touch : MonoBehaviour
 
                 touchPosition = Input.GetTouch(0).position;
             }
-
-
-            //zoom and pinch
-            if (Input.touchCount == 2)
-            {
-                //check if currently zooming in/out
-                if (!isZooming)
-                {
-                    //if not record the starting pinch length
-                    startPinchLength = Vector3.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
-                    isZooming = true;
-                }
-                else
-                {
-                    float pinchLength;
-                    pinchLength = Vector3.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
-
-                    //determine the change in pinch length from the starting pinch length
-                    deltaPinch = pinchLength - startPinchLength;
-
-                    //if the change is greater than the deadzone attempt to zoom in/out
-                    if (deltaPinch < -pinchDeadzone)
-                    {
-                        //zoom in
-                        if (mainCamera.GetComponent<Transform>().localPosition.z > minZoom)
-                        {
-                            mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, 0.5f));
-                        }
-                    }
-                    else if (deltaPinch > pinchDeadzone)
-                    {
-                        //    //zoom out
-                        if (mainCamera.GetComponent<Transform>().localPosition.z < maxZoom)
-                        {
-                            mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, -0.5f));
-                        }
-                    }
-                }
-            }
             //no fingers touching so we stop zooming
             if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
                 isZooming = false;
             }
         }
-        else //use first person controls
+        else //use first person controls (gyro) i hope this works
         {
-            //code taken from archery game, should work
-
-            horizontal += Input.gyro.rotationRateUnbiased.x;
-            //horizontal = Mathf.Clamp(horizontal, -horizontalRange, horizontalRange);
-
-            vertical += Input.gyro.rotationRateUnbiased.y;
-            //vertical = Mathf.Clamp(vertical, -verticalRange, verticalRange);
-
-            Camera.main.transform.localRotation = Quaternion.Euler(-horizontal, -vertical, 0);
-            Camera.main.transform.Rotate(-Input.gyro.rotationRateUnbiased.x, -Input.gyro.rotationRateUnbiased.y, 0);
+            mainCamera.transform.localRotation = gyro.attitude * rot;
         }
-	}
 
-    /// <summary>
-    /// change the view from first to third person and vice versa
-    /// </summary>
-    public void ChangeView()
-    {
-        isFirstPerson = !isFirstPerson;
+        //zoom and pinch
+        if (Input.touchCount == 2)
+        {
+            //check if currently zooming in/out
+            if (!isZooming)
+            {
+                //if not record the starting pinch length
+                startPinchLength = Vector3.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+                isZooming = true;
+            }
+            else
+            {
+                float pinchLength;
+                pinchLength = Vector3.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+
+                //determine the change in pinch length from the starting pinch length
+                deltaPinch = pinchLength - startPinchLength;
+
+                //if the change is greater than the deadzone attempt to zoom in/out
+                if (deltaPinch < -pinchDeadzone)
+                {
+                    //zoom in
+                    if (mainCamera.GetComponent<Transform>().localPosition.z > minZoom)
+                    {
+                        mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, 0.5f));
+                    }
+                }
+                else if (deltaPinch > pinchDeadzone)
+                {
+                    //    //zoom out
+                    if (mainCamera.GetComponent<Transform>().localPosition.z < maxZoom)
+                    {
+                        mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, -0.5f));
+                    }
+                }
+            }
+        }
     }
 }

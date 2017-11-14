@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4695972908734054}
   - component: {fileID: 33178329815708618}
   - component: {fileID: 23445132066398774}
-  - component: {fileID: 114986411988054944}
+  - component: {fileID: 114802132260289720}
   m_Layer: 0
   m_Name: SplodieStuff
   m_TagString: Untagged
@@ -81,7 +81,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141581951722234}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114986411988054944
+--- !u!114 &114802132260289720
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1141581951722234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c125219f46342c43a0e0eba2f708495, type: 3}
+  m_Script: {fileID: 11500000, guid: 4188403f2e3e0a04ebaa772d1706ff7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sploderRadius: 5
