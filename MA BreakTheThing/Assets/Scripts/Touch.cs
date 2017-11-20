@@ -49,12 +49,17 @@ public class Touch : MonoBehaviour
     /// <summary>
     /// minimum zoom distance, uses local position of camera
     /// </summary>
-    float minZoom = 0;
+    float minZoom = -5;
 
     /// <summary>
     /// maximum zoom distance, uses local position of camera
     /// </summary>
-    float maxZoom = 50;
+    float maxZoom = -50;
+
+    /// <summary>
+    /// speed to zoom in/out
+    /// </summary>
+    float zoomSpeed = 0.3f;
 
     /// <summary>
     /// number of explosives used in the current level
@@ -66,6 +71,7 @@ public class Touch : MonoBehaviour
     /// </summary>
     public int maxExplosives = 3;
 
+    float rotSpeed = 10;
 
     private Gyroscope gyro;
 
@@ -89,31 +95,31 @@ public class Touch : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (Input.GetMouseButtonUp(0) /*Input.touchCount = 1 && Input.GetTouch(0).phase == TouchPhase.Ended*/)
-            {
-                //find the position that was clicked
-                Vector3 pos = Vector3.zero;
+        //if (!EventSystem.current.IsPointerOverGameObject())
+        //{
+        //    if (Input.GetMouseButtonUp(0) /*Input.touchCount = 1 && Input.GetTouch(0).phase == TouchPhase.Ended*/)
+        //    {
+        //        //find the position that was clicked
+        //        Vector3 pos = Vector3.zero;
 
-                Ray ray = Camera.main.GetComponent<Camera>().ScreenPointToRay(/*Input.GetTouch(0).position*/Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
-                {
-                    pos = hit.point;
-                }
+        //        Ray ray = Camera.main.GetComponent<Camera>().ScreenPointToRay(/*Input.GetTouch(0).position*/Input.mousePosition);
+        //        RaycastHit hit;
+        //        if (Physics.Raycast(ray, out hit))
+        //        {
+        //            pos = hit.point;
+        //        }
 
-                //instantiate a splodie thing where clicked
-                Instantiate(Resources.Load("SplodieStuff"), pos, Quaternion.identity);
-                //add 1 to number of bombs used
-                explosivesUsed++;
-            }
+        //        //instantiate a splodie thing where clicked
+        //        Instantiate(Resources.Load("SplodieStuff"), pos, Quaternion.identity);
+        //        //add 1 to number of bombs used
+        //        explosivesUsed++;
+        //    }
 
-            if (explosivesUsed >= maxExplosives)
-            {
-                GetComponent<PointsSystem>().IsOverExplosivesCap = true;
-            }
-        }
+        //    if (explosivesUsed >= maxExplosives)
+        //    {
+        //        GetComponent<PointsSystem>().IsOverExplosivesCap = true;
+        //    }
+        //}
 
         if (!isFirstPerson)
         {
@@ -148,18 +154,20 @@ public class Touch : MonoBehaviour
                         cameraRotator.GetComponent<Transform>().Translate(new Vector3(0, -heightSpeed, 0));
                     }
                 }
-
                 touchPosition = Input.GetTouch(0).position;
             }
-            //no fingers touching so we stop zooming
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                isZooming = false;
-            }
+           
         }
         else //use first person controls (gyro) i hope this works
         {
-            mainCamera.transform.localRotation = gyro.attitude * rot;
+            //mainCamera.transform.rotation = gyro.attitude * rot;
+
+            //float z = Input.acceleration.z;
+            //float y = Input.acceleration.y;
+
+            //mainCamera.transform.Rotate(0, y * rotSpeed, z * rotSpeed);
+
+            mainCamera.transform.Rotate(-Input.gyro.rotationRateUnbiased.x, -Input.gyro.rotationRateUnbiased.y, -Input.gyro.rotationRateUnbiased.z);
         }
 
         //zoom and pinch
@@ -183,21 +191,27 @@ public class Touch : MonoBehaviour
                 //if the change is greater than the deadzone attempt to zoom in/out
                 if (deltaPinch < -pinchDeadzone)
                 {
-                    //zoom in
-                    if (mainCamera.GetComponent<Transform>().localPosition.z > minZoom)
+                    //zoom out
+                    if (mainCamera.GetComponent<Transform>().localPosition.z > maxZoom)
                     {
-                        mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, 0.5f));
+                        mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, -zoomSpeed));
                     }
                 }
                 else if (deltaPinch > pinchDeadzone)
                 {
-                    //    //zoom out
-                    if (mainCamera.GetComponent<Transform>().localPosition.z < maxZoom)
+                    //zoom in
+                    if (mainCamera.GetComponent<Transform>().localPosition.z < minZoom)
                     {
-                        mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, -0.5f));
+                        mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, zoomSpeed));
                     }
                 }
             }
+        }
+
+        //no fingers touching so we stop zooming
+        if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            isZooming = false;
         }
     }
 }
