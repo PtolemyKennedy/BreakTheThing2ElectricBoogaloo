@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Touch : MonoBehaviour
 {
+
+    public GameManager _GameManager;
     public GameObject cameraRotator;
     public Camera mainCamera;
 
@@ -14,7 +16,13 @@ public class Touch : MonoBehaviour
     /// <summary>
     /// is the player in first person mode
     /// </summary>
-    public static bool isFirstPerson = false;
+    public bool isFirstPerson = false;
+    /// <summary>
+    /// is the player currently placing an explosive
+    /// </summary>
+    public bool isPlacingExplosive = false;
+    public string explosiveToPlace = "";
+
 
     /// <summary>
     /// the rotation speed of the camera
@@ -61,157 +69,147 @@ public class Touch : MonoBehaviour
     /// </summary>
     float zoomSpeed = 0.3f;
 
-    /// <summary>
-    /// number of explosives used in the current level
-    /// </summary>
-    int explosivesUsed = 0;
-
-    /// <summary>
-    /// maximum number of explosives available for full score on the current level
-    /// </summary>
-    public int maxExplosives = 3;
-
-    float rotSpeed = 10;
-
-    private Gyroscope gyro;
-
-    /// <summary>
-    /// quaternion to multiply the gyro rotation by
-    /// </summary>
-    private Quaternion rot;
-
     //Use this for initialization
 
     void Start()
     {
-        //check if phone supports gyro
-        if (SystemInfo.supportsGyroscope)
-        {
-            gyro = Input.gyro;
-            rot = new Quaternion(0, 0, 1, 0);
-        }
+        _GameManager = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update ()
     {
-        //if (!EventSystem.current.IsPointerOverGameObject())
-        //{
-        //    if (Input.GetMouseButtonUp(0) /*Input.touchCount = 1 && Input.GetTouch(0).phase == TouchPhase.Ended*/)
-        //    {
-        //        //find the position that was clicked
-        //        Vector3 pos = Vector3.zero;
-
-        //        Ray ray = Camera.main.GetComponent<Camera>().ScreenPointToRay(/*Input.GetTouch(0).position*/Input.mousePosition);
-        //        RaycastHit hit;
-        //        if (Physics.Raycast(ray, out hit))
-        //        {
-        //            pos = hit.point;
-        //        }
-
-        //        //instantiate a splodie thing where clicked
-        //        Instantiate(Resources.Load("SplodieStuff"), pos, Quaternion.identity);
-        //        //add 1 to number of bombs used
-        //        explosivesUsed++;
-        //    }
-
-        //    if (explosivesUsed >= maxExplosives)
-        //    {
-        //        GetComponent<PointsSystem>().IsOverExplosivesCap = true;
-        //    }
-        //}
-
-        if (!isFirstPerson)
+        //check if the player is placing an explosive
+        if (isPlacingExplosive)
         {
-            //rotation and height check
-            if (Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount == 1)
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
-                //rotate camera
-                if (touchPosition.x < Input.GetTouch(0).position.x)
+                if (Input.GetMouseButtonUp(0) /*Input.touchCount = 1 && Input.GetTouch(0).phase == TouchPhase.Ended*/)
                 {
-                    //rotate the camera left around the center
-                    cameraRotator.GetComponent<Transform>().Rotate(new Vector3(0, rotateSpeed, 0));
-                }
-                else if (touchPosition.x > Input.GetTouch(0).position.x)
-                {
-                    //rotate the camera right around the center
-                    cameraRotator.GetComponent<Transform>().Rotate(new Vector3(0, -rotateSpeed, 0));
-                }
-                //move camera up and down
-                if (touchPosition.y < Input.GetTouch(0).position.y)
-                {
-                    //move the camera up to a limit
-                    if (cameraRotator.GetComponent<Transform>().position.y <= 15)
+                    //find the position that was clicked
+                    Vector3 pos = Vector3.zero;
+
+                    Ray ray = Camera.main.GetComponent<Camera>().ScreenPointToRay(/*Input.GetTouch(0).position*/Input.mousePosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit))
                     {
-                        cameraRotator.GetComponent<Transform>().Translate(new Vector3(0, heightSpeed, 0));
+                        pos = hit.point;
                     }
-                }
-                else if (touchPosition.y > Input.GetTouch(0).position.y)
-                {
-                    //move the camera down to a limit
-                    if (cameraRotator.GetComponent<Transform>().position.y >= 2)
+
+                    //instantiate an explosive where clicked
+                    Instantiate(Resources.Load(explosiveToPlace), pos, Quaternion.identity);
+
+                    switch (explosiveToPlace)
                     {
-                        cameraRotator.GetComponent<Transform>().Translate(new Vector3(0, -heightSpeed, 0));
+                        default:
+                            break;
                     }
-                }
-                touchPosition = Input.GetTouch(0).position;
-            }
-           
-        }
-        else //use first person controls (gyro) i hope this works
-        {
-            //mainCamera.transform.rotation = gyro.attitude * rot;
 
-            //float z = Input.acceleration.z;
-            //float y = Input.acceleration.y;
+                    //add 1 to number of bombs used
+                    _GameManager.explosivesUsed[]++;
 
-            //mainCamera.transform.Rotate(0, y * rotSpeed, z * rotSpeed);
+                    //check to see if the player is over the maximum explosives
+                    //_GameManager.CheckExplosivesUsed();
 
-            mainCamera.transform.Rotate(-Input.gyro.rotationRateUnbiased.x, -Input.gyro.rotationRateUnbiased.y, -Input.gyro.rotationRateUnbiased.z);
-        }
-
-        //zoom and pinch
-        if (Input.touchCount == 2)
-        {
-            //check if currently zooming in/out
-            if (!isZooming)
-            {
-                //if not record the starting pinch length
-                startPinchLength = Vector3.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
-                isZooming = true;
-            }
-            else
-            {
-                float pinchLength;
-                pinchLength = Vector3.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
-
-                //determine the change in pinch length from the starting pinch length
-                deltaPinch = pinchLength - startPinchLength;
-
-                //if the change is greater than the deadzone attempt to zoom in/out
-                if (deltaPinch < -pinchDeadzone)
-                {
-                    //zoom out
-                    if (mainCamera.GetComponent<Transform>().localPosition.z > maxZoom)
-                    {
-                        mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, -zoomSpeed));
-                    }
-                }
-                else if (deltaPinch > pinchDeadzone)
-                {
-                    //zoom in
-                    if (mainCamera.GetComponent<Transform>().localPosition.z < minZoom)
-                    {
-                        mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, zoomSpeed));
-                    }
+                    //no longer placing explosive
+                    isPlacingExplosive = false;
                 }
             }
         }
-
-        //no fingers touching so we stop zooming
-        if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        else
         {
-            isZooming = false;
+            if (!isFirstPerson)
+            {
+                //rotation and height control
+                if (Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount == 1)
+                {
+                    //rotate camera
+                    if (touchPosition.x < Input.GetTouch(0).position.x)
+                    {
+                        //rotate the camera left around the center
+                        cameraRotator.GetComponent<Transform>().Rotate(new Vector3(0, rotateSpeed, 0));
+                    }
+                    else if (touchPosition.x > Input.GetTouch(0).position.x)
+                    {
+                        //rotate the camera right around the center
+                        cameraRotator.GetComponent<Transform>().Rotate(new Vector3(0, -rotateSpeed, 0));
+                    }
+                    //move camera up and down
+                    if (touchPosition.y < Input.GetTouch(0).position.y)
+                    {
+                        //move the camera up to a limit
+                        if (cameraRotator.GetComponent<Transform>().position.y <= 15)
+                        {
+                            cameraRotator.GetComponent<Transform>().Translate(new Vector3(0, heightSpeed, 0));
+                        }
+                    }
+                    else if (touchPosition.y > Input.GetTouch(0).position.y)
+                    {
+                        //move the camera down to a limit
+                        if (cameraRotator.GetComponent<Transform>().position.y >= 2)
+                        {
+                            cameraRotator.GetComponent<Transform>().Translate(new Vector3(0, -heightSpeed, 0));
+                        }
+                    }
+                    touchPosition = Input.GetTouch(0).position;
+                }
+
+            }
+            else //use first person controls
+            {
+                //mainCamera.transform.rotation = gyro.attitude * rot;
+
+                //float z = Input.acceleration.z;
+                //float y = Input.acceleration.y;
+
+                //mainCamera.transform.Rotate(0, y * rotSpeed, z * rotSpeed);
+
+                mainCamera.transform.Rotate(-Input.gyro.rotationRateUnbiased.x, -Input.gyro.rotationRateUnbiased.y, -Input.gyro.rotationRateUnbiased.z);
+            }
+
+            //zoom and pinch control
+            if (Input.touchCount == 2)
+            {
+                //check if currently zooming in/out
+                if (!isZooming)
+                {
+                    //if not record the starting pinch length
+                    startPinchLength = Vector3.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+                    isZooming = true;
+                }
+                else
+                {
+                    float pinchLength;
+                    pinchLength = Vector3.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+
+                    //determine the change in pinch length from the starting pinch length
+                    deltaPinch = pinchLength - startPinchLength;
+
+                    //if the change is greater than the deadzone attempt to zoom in/out
+                    if (deltaPinch < -pinchDeadzone)
+                    {
+                        //zoom out
+                        if (mainCamera.GetComponent<Transform>().localPosition.z > maxZoom)
+                        {
+                            mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, -zoomSpeed));
+                        }
+                    }
+                    else if (deltaPinch > pinchDeadzone)
+                    {
+                        //zoom in
+                        if (mainCamera.GetComponent<Transform>().localPosition.z < minZoom)
+                        {
+                            mainCamera.GetComponent<Transform>().Translate(new Vector3(0, 0, zoomSpeed));
+                        }
+                    }
+                }
+            }
+
+            //no fingers touching so we stop zooming
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                isZooming = false;
+            }
         }
     }
 }

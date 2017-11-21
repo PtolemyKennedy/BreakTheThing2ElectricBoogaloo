@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23445132066398774}
   - component: {fileID: 114802132260289720}
   m_Layer: 0
-  m_Name: SplodieStuff
+  m_Name: smallExplosive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
