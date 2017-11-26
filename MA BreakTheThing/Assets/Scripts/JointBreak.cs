@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class JointBreak : MonoBehaviour
 {
-    PointsSystem ps;
+    PointsSystem _ps;
     FixedJoint fj;
 
 	// Use this for initialization
 	void Start ()
     {
-        ps = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PointsSystem>();
+        _ps = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PointsSystem>();
         fj = GetComponent<FixedJoint>();      
 	}
 	
@@ -23,6 +23,6 @@ public class JointBreak : MonoBehaviour
     //when the joint breaks score points relative to how difficult the joint was to break
     private void OnJointBreak(float breakForce)
     {
-        ps.ScorePoints(fj.breakForce);
+        _ps.ScorePoints(fj.breakForce);
     }
 }

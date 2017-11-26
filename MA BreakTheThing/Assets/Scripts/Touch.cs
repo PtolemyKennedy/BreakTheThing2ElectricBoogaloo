@@ -99,17 +99,29 @@ public class Touch : MonoBehaviour
                     //instantiate an explosive where clicked
                     Instantiate(Resources.Load(explosiveToPlace), pos, Quaternion.identity);
 
+                    //add 1 to number of bombs used
                     switch (explosiveToPlace)
                     {
+                        case "smallExplosive":
+                            _GameManager.explosivesUsed[0]++;
+                            break;
+                        case "mediumExplosive":
+                            _GameManager.explosivesUsed[1]++;
+                            break;
+                        case "largeExplosive":
+                            _GameManager.explosivesUsed[2]++;
+                            break;
+                        case "implosive":
+                            _GameManager.explosivesUsed[3]++;
+
+                            break;
                         default:
                             break;
                     }
-
-                    //add 1 to number of bombs used
-                    _GameManager.explosivesUsed[]++;
+                    
 
                     //check to see if the player is over the maximum explosives
-                    //_GameManager.CheckExplosivesUsed();
+                    _GameManager.CheckExplosivesUsed();
 
                     //no longer placing explosive
                     isPlacingExplosive = false;

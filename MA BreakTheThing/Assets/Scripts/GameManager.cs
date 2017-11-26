@@ -15,22 +15,22 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public int[] maxExplosives = new int[] { 0, 0, 0, 0 };
 
-    public struct Explosive
-    {
-        public int number;
-        public string name;
+    //public struct Explosive
+    //{
+    //    public int number;
+    //    public string name;
 
-        public Explosive(int p1, string p2)
-        {
-            number = p1;
-            name = p2;
-        }
-    }
+    //    public Explosive(int p1, string p2)
+    //    {
+    //        number = p1;
+    //        name = p2;
+    //    }
+    //}
 
-    Explosive smallExplosive = new Explosive(0, "smallExplosive");
-    Explosive meidumExplosive = new Explosive(1, "mediumExplosive");
-    Explosive laregExplosive = new Explosive(2, "largeExplosive");
-    Explosive implosive = new Explosive(3, "implosive");
+    //Explosive smallExplosive = new Explosive(0, "smallExplosive");
+    //Explosive meidumExplosive = new Explosive(1, "mediumExplosive");
+    //Explosive laregExplosive = new Explosive(2, "largeExplosive");
+    //Explosive implosive = new Explosive(3, "implosive");
 
     public Touch _Touch;
     public PointsSystem _PointsSystem;
@@ -43,7 +43,8 @@ public class GameManager : MonoBehaviour
         _Touch = GetComponent<Touch>();
         _PointsSystem = GetComponent<PointsSystem>();
 
-        
+        maxExplosives[0] = 3; //3 for test level
+
 
     }
 	
@@ -52,7 +53,6 @@ public class GameManager : MonoBehaviour
  //   {
 		
 	//}
-
 
     /// <summary>
     /// resets the scene
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         else
         {
             _Touch.isPlacingExplosive = true;
-            _Touch.explosiveToPlace = smallExplosive.name;
+            _Touch.explosiveToPlace = "smallExplosive";
         }
     }
 
@@ -98,9 +98,13 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
+            //update text on place explosive button
+
             if (explosivesUsed[i] >= maxExplosives[i])
             {
                 _PointsSystem.IsOverExplosivesCap = true;
+
+                //grey out the place explosive button that is over the cap
             }
         }    
     }
