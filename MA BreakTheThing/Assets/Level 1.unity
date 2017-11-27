@@ -463,6 +463,56 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 70350220}
+--- !u!1001 &75368950
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4261129383670700, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261129383670700, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261129383670700, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261129383670700, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261129383670700, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261129383670700, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261129383670700, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261129383670700, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173725924591124, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173725924591124, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+      propertyPath: m_Name
+      value: 1x1x6 (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 01e29def2c6d65c4fb4a22148b182d35, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &249570624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1390,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosivesUsed: 00000000000000000000000000000000
   maxExplosives: 00000000000000000000000000000000
+  _SmallExplosive: {fileID: 1665633790}
+  _MediumExplosive: {fileID: 1574873627}
+  _LargeExplosive: {fileID: 51514710}
+  _Implosive: {fileID: 1631300454}
   _Touch: {fileID: 0}
   _PointsSystem: {fileID: 0}
 --- !u!4 &1505313286
@@ -1371,7 +1425,7 @@ MonoBehaviour:
   ScoreCap: 0
   TargetScore: 0
   IsWin: 0
-  pointsText: {fileID: 0}
+  pointsText: {fileID: 1060257355}
 --- !u!1 &1558532937
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class GameManager : MonoBehaviour
     /// maximum number of explosives available for full score on the current level
     /// </summary>
     public int[] maxExplosives = new int[] { 0, 0, 0, 0 };
+
+    public GameObject _SmallExplosive;
+    public GameObject _MediumExplosive;
+    public GameObject _LargeExplosive;
+    public GameObject _Implosive;
+
 
     //public struct Explosive
     //{
@@ -45,7 +52,7 @@ public class GameManager : MonoBehaviour
 
         maxExplosives[0] = 3; //3 for test level
 
-
+        CheckExplosivesUsed();
     }
 	
 	// Update is called once per frame
@@ -83,28 +90,110 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void PlaceSmallExplosive()
     {
-        if (_Touch.isPlacingExplosive)
+        if (explosivesUsed[0] < maxExplosives[0])
         {
-            _Touch.isPlacingExplosive = false;
+            if (_Touch.isPlacingExplosive)
+            {
+                _Touch.isPlacingExplosive = false;
+                _SmallExplosive.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                _Touch.isPlacingExplosive = true;
+                _Touch.explosiveToPlace = "smallExplosive";
+
+                _SmallExplosive.GetComponent<Image>().color = Color.grey;
+            }
         }
-        else
+    }
+    public void PlaceMediumExplosive()
+    {
+        if (explosivesUsed[1] < maxExplosives[1])
         {
-            _Touch.isPlacingExplosive = true;
-            _Touch.explosiveToPlace = "smallExplosive";
+            if (_Touch.isPlacingExplosive)
+            {
+                _Touch.isPlacingExplosive = false;
+                _MediumExplosive.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                _Touch.isPlacingExplosive = true;
+                _Touch.explosiveToPlace = "mediumExplosive";
+
+                _MediumExplosive.GetComponent<Image>().color = Color.grey;
+            }
+        }
+    }
+    public void PlaceLargeExplosive()
+    {
+        if (explosivesUsed[2] < maxExplosives[2])
+        {
+            if (_Touch.isPlacingExplosive)
+            {
+                _Touch.isPlacingExplosive = false;
+                _LargeExplosive.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                _Touch.isPlacingExplosive = true;
+                _Touch.explosiveToPlace = "largeExplosive";
+                _LargeExplosive.GetComponent<Image>().color = Color.grey;
+            }
+        }
+    }
+    public void PlaceImplosive()
+    {
+        if (explosivesUsed[3] < maxExplosives[3])
+        {
+            if (_Touch.isPlacingExplosive)
+            {
+                _Touch.isPlacingExplosive = false;
+                _Implosive.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                _Touch.isPlacingExplosive = true;
+                _Touch.explosiveToPlace = "implosive";
+                _Implosive.GetComponent<Image>().color = Color.grey;
+            }
         }
     }
 
     public void CheckExplosivesUsed()
     {
+        //set normal colours
+        _SmallExplosive.GetComponent<Image>().color = Color.white;
+
+        //update text on place explosive button
+        _SmallExplosive.GetComponentInChildren<Text>().text = "Small :" + (maxExplosives[0] - explosivesUsed[0]);
+        _MediumExplosive.GetComponentInChildren<Text>().text = "Medium :" + (maxExplosives[1] - explosivesUsed[1]);
+        _LargeExplosive.GetComponentInChildren<Text>().text = "Large :" + (maxExplosives[2] - explosivesUsed[2]);
+        _Implosive.GetComponentInChildren<Text>().text = "Implosive :" + (maxExplosives[3] - explosivesUsed[3]);
+
         for (int i = 0; i < 4; i++)
         {
-            //update text on place explosive button
-
             if (explosivesUsed[i] >= maxExplosives[i])
             {
                 _PointsSystem.IsOverExplosivesCap = true;
 
-                //grey out the place explosive button that is over the cap
+                //set used colours
+                switch (i)
+                {
+                    case 0:
+                        _SmallExplosive.GetComponent<Image>().color = Color.red;
+                        break;
+                    case 1:
+                        _MediumExplosive.GetComponent<Image>().color = Color.red;
+                        break;
+                    case 2:
+                        _LargeExplosive.GetComponent<Image>().color = Color.red;
+                        break;
+                    case 3:
+                        _Implosive.GetComponent<Image>().color = Color.red;
+                        break;
+                    default:
+                        break;
+                }
             }
         }    
     }
