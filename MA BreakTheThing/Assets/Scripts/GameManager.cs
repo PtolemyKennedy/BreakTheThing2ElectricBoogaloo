@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour
         _PointsSystem = GetComponent<PointsSystem>();
 
         maxExplosives[0] = 3; //3 for test level
+        maxExplosives[1] = 1;
+        maxExplosives[2] = 1;
+        maxExplosives[3] = 1;
 
         CheckExplosivesUsed();
     }
@@ -172,7 +175,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            if (explosivesUsed[i] >= maxExplosives[i])
+            if (explosivesUsed[i] > maxExplosives[i])
             {
                 _PointsSystem.IsOverExplosivesCap = true;
 
