@@ -82,7 +82,7 @@ public class Touch : MonoBehaviour
         //check if the player is placing an explosive
         if (isPlacingExplosive)
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
             {
                 if (/*Input.GetMouseButtonUp(0)*/ Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
                 {
@@ -125,9 +125,9 @@ public class Touch : MonoBehaviour
 
                     //no longer placing explosive
                     isPlacingExplosive = false;
+                }
             }
         }
-    }
         else
         {
         if (!isFirstPerson)
