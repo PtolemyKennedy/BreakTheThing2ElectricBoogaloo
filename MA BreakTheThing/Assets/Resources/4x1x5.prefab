@@ -494,7 +494,7 @@ FixedJoint:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1974302724182684}
   m_ConnectedBody: {fileID: 54233724693103940}
-  m_BreakForce: 1000
+  m_BreakForce: 500
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
@@ -507,7 +507,7 @@ FixedJoint:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1532752000644710}
   m_ConnectedBody: {fileID: 54233724693103940}
-  m_BreakForce: 1000
+  m_BreakForce: 500
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
@@ -520,7 +520,7 @@ FixedJoint:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151073273318210}
   m_ConnectedBody: {fileID: 54790646897629648}
-  m_BreakForce: 1000
+  m_BreakForce: 500
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
@@ -533,7 +533,7 @@ FixedJoint:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121107223268580}
   m_ConnectedBody: {fileID: 54790646897629648}
-  m_BreakForce: 1000
+  m_BreakForce: 500
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1

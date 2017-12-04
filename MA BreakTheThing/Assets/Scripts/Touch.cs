@@ -84,7 +84,7 @@ public class Touch : MonoBehaviour
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-                if (Input.GetMouseButtonUp(0) /*Input.touchCount = 1 && Input.GetTouch(0).phase == TouchPhase.Ended*/)
+                if (/*Input.GetMouseButtonUp(0)*/ Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     //find the position that was clicked
                     Vector3 pos = Vector3.zero;
@@ -118,22 +118,22 @@ public class Touch : MonoBehaviour
                         default:
                             break;
                     }
-                    
+
 
                     //check to see if the player is over the maximum explosives
                     _GameManager.CheckExplosivesUsed();
 
                     //no longer placing explosive
                     isPlacingExplosive = false;
-                }
             }
         }
+    }
         else
         {
-            if (!isFirstPerson)
-            {
-                //rotation and height control
-                if (Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount == 1)
+        if (!isFirstPerson)
+        {
+        //rotation and height control
+        if (Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount == 1)
                 {
                     //rotate camera
                     if (touchPosition.x < Input.GetTouch(0).position.x)

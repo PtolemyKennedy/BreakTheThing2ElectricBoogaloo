@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            if (explosivesUsed[i] > maxExplosives[i])
+            if (explosivesUsed[i] >= maxExplosives[i])
             {
                 _PointsSystem.IsOverExplosivesCap = true;
 
