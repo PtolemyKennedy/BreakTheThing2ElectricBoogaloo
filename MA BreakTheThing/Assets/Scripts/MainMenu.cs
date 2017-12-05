@@ -7,11 +7,17 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     // Use this for initialization
+    public float cameraTransitionSpeed;
     public GameObject levelButtonPrefab;
     public GameObject levelButtonContainer;
 
+    private Transform cameraTransform;
+    private Transform cameraDesiredLookAt;
+
     private void Start()
     {
+        cameraTransform = Camera.main.transform;
+        
         Sprite[] thumbnails = Resources.LoadAll<Sprite>("Levels"); //Creates array of levels in folder
         foreach (Sprite thumbnail in thumbnails)
         {
@@ -23,6 +29,15 @@ public class MainMenu : MonoBehaviour {
             container.GetComponent<Button>().onClick.AddListener(() => LoadLevel(sceneName)); //called every time a button is clicked and changes depending on button
         }
     }
+
+    private void Update()
+    {
+        if(cameraDesiredLookAt != null)
+        {
+            cameraTransform.rotation = Quaternion.Slerp (cameraTransform.rotation, cameraDesiredLookAt.rotation, cameraTransitionSpeed * Time.deltaTime);
+        }
+    }
+
     private void LoadLevel (string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -30,6 +45,6 @@ public class MainMenu : MonoBehaviour {
 
     public void LookAtMenu(Transform menuTransform)
     {
-        Camera.main.transform.LookAt(menuTransform.position);
+        cameraDesiredLookAt = menuTransform;
     }
 }
