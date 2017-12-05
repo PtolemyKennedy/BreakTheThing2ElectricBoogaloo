@@ -13,14 +13,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 43
+=======
+    x: 8
+    y: 56
+>>>>>>> menuorsomething
     width: 1920
     height: 1117
   m_ShowMode: 4
   m_Title: 
+<<<<<<< HEAD
   m_RootView: {fileID: 6}
   m_MinSize: {x: 950, y: 300}
+=======
+  m_RootView: {fileID: 7}
+  m_MinSize: {x: 950, y: 542}
+>>>>>>> menuorsomething
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -30,6 +40,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
+<<<<<<< HEAD
+=======
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 1131
+    y: 0
+    width: 399
+    height: 641
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 18}
+  m_Panes:
+  - {fileID: 18}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+>>>>>>> menuorsomething
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -46,7 +84,11 @@ MonoBehaviour:
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
   controlID: 9
+<<<<<<< HEAD
 --- !u!114 &3
+=======
+--- !u!114 &4
+>>>>>>> menuorsomething
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -62,11 +104,19 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1531
     y: 0
+<<<<<<< HEAD
     width: 389
     height: 1067
   m_MinSize: {x: 277, y: 71}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
+=======
+    width: 390
+    height: 926
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 15}
+>>>>>>> menuorsomething
   m_Panes:
   - {fileID: 14}
   m_Selected: 0
@@ -210,7 +260,11 @@ MonoBehaviour:
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
   controlID: 10
+<<<<<<< HEAD
 --- !u!114 &10
+=======
+--- !u!114 &11
+>>>>>>> menuorsomething
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -234,7 +288,11 @@ MonoBehaviour:
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
   controlID: 11
+<<<<<<< HEAD
 --- !u!114 &11
+=======
+--- !u!114 &12
+>>>>>>> menuorsomething
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -309,10 +367,17 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 737
     width: 1529
     height: 401
+=======
+    x: 8
+    y: 746
+    width: 1528
+    height: 264
+>>>>>>> menuorsomething
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
@@ -325,20 +390,34 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
+<<<<<<< HEAD
     - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
   - Assets
+=======
+    - Assets/Prefab
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Prefab
+>>>>>>> menuorsomething
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\2kennp81\Documents\GitHub\BreakTheThing2ElectricBoogaloo\MA
     BreakTheThing
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: cc260000
     m_LastClickedID: 9932
     m_ExpandedIDs: 00000000cc2600005227000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: fc260000
+    m_LastClickedID: 9980
+    m_ExpandedIDs: 00000000e62600003c27000000ca9a3bffffff7f
+>>>>>>> menuorsomething
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -366,7 +445,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000cc26000052270000
+=======
+    m_ExpandedIDs: 00000000e62600003c270000
+>>>>>>> menuorsomething
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -443,10 +526,17 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1533
     y: 92
     width: 387
     height: 1046
+=======
+    x: 1540
+    y: 105
+    width: 388
+    height: 905
+>>>>>>> menuorsomething
   m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
@@ -476,6 +566,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 92
     width: 377
@@ -485,6 +576,17 @@ MonoBehaviour:
     m_SelectedIDs: e6260000
     m_LastClickedID: 0
     m_ExpandedIDs: cce0ffff9cecffff96f1ffff00000000
+=======
+    x: 8
+    y: 105
+    width: 376
+    height: 620
+  m_TreeViewState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 76c5ffff
+    m_LastClickedID: 0
+    m_ExpandedIDs: b6d9ffffacf1ffff00000000
+>>>>>>> menuorsomething
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -503,7 +605,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 0}
     m_SearchString: 
   m_ExpandedScenes:
-  - Level 1
+  - MainMenu
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -529,19 +631,32 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 381
     y: 92
     width: 1148
     height: 624
+=======
+    x: 388
+    y: 105
+    width: 749
+    height: 620
+>>>>>>> menuorsomething
   m_SceneLighting: 1
   lastFramingTime: 0
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 3.159152, y: 2.3671393, z: -2.598978}
     speed: 2
     m_Value: {x: 3.159152, y: 2.3671393, z: -2.598978}
+=======
+    m_Target: {x: -12.59294, y: 37.42585, z: 53.383266}
+    speed: 2
+    m_Value: {x: -12.59294, y: 37.42585, z: 53.383266}
+>>>>>>> menuorsomething
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -564,9 +679,15 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.025530295, y: 0.97444797, z: -0.16106723, w: -0.15445676}
     speed: 2
     m_Value: {x: -0.025530295, y: 0.97444797, z: -0.16106723, w: -0.15445676}
+=======
+    m_Target: {x: 0.26328552, y: 0.108822115, z: 0.02990339, w: -0.9580941}
+    speed: 2
+    m_Value: {x: 0.26328552, y: 0.108822115, z: 0.02990339, w: -0.9580941}
+>>>>>>> menuorsomething
   m_Size:
     m_Target: 19.352823
     speed: 2
@@ -603,10 +724,17 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 381
     y: 92
     width: 1148
     height: 624
+=======
+    x: 1141
+    y: 105
+    width: 395
+    height: 620
+>>>>>>> menuorsomething
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
@@ -650,7 +778,11 @@ MonoBehaviour:
       width: 1148
       height: 607
     m_MinimalGUI: 1
+<<<<<<< HEAD
   m_defaultScale: 1
+=======
+  m_defaultScale: 0.3857422
+>>>>>>> menuorsomething
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
   m_LastWindowPixelSize: {x: 1148, y: 624}
