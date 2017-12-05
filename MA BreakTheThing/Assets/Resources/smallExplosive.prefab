@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4695972908734054}
+  - component: {fileID: 114613762068077034}
   m_Layer: 0
   m_Name: smallExplosive
   m_TagString: Untagged
@@ -109,3 +110,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1539723129476222}
   m_Mesh: {fileID: 4300000, guid: b742a4e66e11d7642b97037a4673a0ed, type: 3}
+--- !u!114 &114613762068077034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1141581951722234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4188403f2e3e0a04ebaa772d1706ff7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sploderRadius: 5
+  explosionForce: 500

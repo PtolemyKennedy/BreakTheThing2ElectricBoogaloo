@@ -37,6 +37,10 @@ public class MainMenu : MonoBehaviour {
             cameraTransform.rotation = Quaternion.Slerp (cameraTransform.rotation, cameraDesiredLookAt.rotation, cameraTransitionSpeed * Time.deltaTime);
         }
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
     private void LoadLevel (string sceneName)
     {

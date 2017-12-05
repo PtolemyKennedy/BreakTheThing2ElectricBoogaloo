@@ -24,5 +24,6 @@ public class JointBreak : MonoBehaviour
     private void OnJointBreak(float breakForce)
     {
         _ps.ScorePoints(fj.breakForce);
+
     }
 }
