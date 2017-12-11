@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -67,10 +67,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
-  m_MinSize: {x: 883, y: 492}
-  m_MaxSize: {x: 16008, y: 14042}
+  m_MinSize: {x: 887, y: 492}
+  m_MaxSize: {x: 16012, y: 14042}
   vertical: 0
-  controlID: 34
+  controlID: 132
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -89,8 +89,8 @@ MonoBehaviour:
     y: 0
     width: 389
     height: 1067
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -114,8 +114,8 @@ MonoBehaviour:
     y: 0
     width: 379
     height: 645
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -231,10 +231,10 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 1067
-  m_MinSize: {x: 608, y: 492}
-  m_MaxSize: {x: 12008, y: 14042}
+  m_MinSize: {x: 610, y: 492}
+  m_MaxSize: {x: 12010, y: 14042}
   vertical: 1
-  controlID: 35
+  controlID: 70
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -256,10 +256,10 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 645
-  m_MinSize: {x: 608, y: 221}
-  m_MaxSize: {x: 12008, y: 4021}
+  m_MinSize: {x: 610, y: 221}
+  m_MaxSize: {x: 12010, y: 4021}
   vertical: 0
-  controlID: 100
+  controlID: 71
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -350,20 +350,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/Resources
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Resources
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\2kennp81\Documents\GitHub\BreakTheThing2ElectricBoogaloo\MA
     BreakTheThing
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7c270000
-    m_LastClickedID: 10108
-    m_ExpandedIDs: 00000000e62600007e27000000ca9a3bffffff7f
+    m_SelectedIDs: 6c270000
+    m_LastClickedID: 10092
+    m_ExpandedIDs: 00000000c82600006c27000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -391,7 +391,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e62600007e270000
+    m_ExpandedIDs: 00000000c82600006c270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -507,9 +507,9 @@ MonoBehaviour:
     height: 624
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 8866fbff1067fbff0a68fbff6669fbff0a6afbff8a9bfbff609cfbff5a9dfbffb69efbff5a9ffbffc875fcffeef3fcff7efafcffdc39fdff203afdff663afdff6e4efdfff466fdff4070fdff268ffdffb48ffdffb090fdff5491fdffd2c2fdff9ec7fdff24c8fdff7ccafdff80cafdffa604feffdc0bfeffde0bfeffe20bfeff000cfeffd682feffae9cfeff489efeffd89ffeffbaa3feff44a4feff9ca6feffa0a6feff4ad3feffd4d3feff2cd6feff30d6feff8eeefeff58effeffb0f1feffb4f1feff02f9ffff06f9ffff22f9ffffd4fbffff0000000046350000663500008c35000096350000b435000068390000544a000064500000b85e00005c5f0000
+    m_SelectedIDs: 303d0000
+    m_LastClickedID: 15664
+    m_ExpandedIDs: d46effff606fffff5a70ffffb671ffff5a72ffff1694ffff54c5ffffe0c5fffff4c8ffff58caffff5ccaffffccceffff58cfffff6cd2ffffd0d3ffffd4d3ffff46ecffffceecffffe6efffff4ef1ffff56f1ffff4efbffff00000000682d0000a62d000034370000b63f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -559,14 +559,14 @@ MonoBehaviour:
     width: 639
     height: 624
   m_SceneLighting: 1
-  lastFramingTime: 2787.7135539290234
+  lastFramingTime: 1962.748693900736
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.5522003, y: 2.8677762, z: -1.2055185}
+    m_Target: {x: 204, y: 86, z: 0}
     speed: 2
-    m_Value: {x: 3.5522003, y: 2.8677762, z: -1.2055185}
+    m_Value: {x: 204, y: 86, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -589,13 +589,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.011811221, y: -0.98045, z: 0.062156897, w: 0.18631937}
+    m_Target: {x: 0.10362522, y: 0.0005882019, z: -0.000060576753, w: 0.99461627}
     speed: 2
-    m_Value: {x: 0.011811221, y: -0.98045, z: 0.062156897, w: 0.18631937}
+    m_Value: {x: 0.10362522, y: 0.0005882019, z: -0.000060576753, w: 0.99461627}
   m_Size:
-    m_Target: 10.693224
+    m_Target: 537.2011
     speed: 2
-    m_Value: 10.693224
+    m_Value: 537.2011
   m_Ortho:
     m_Target: 0
     speed: 2
