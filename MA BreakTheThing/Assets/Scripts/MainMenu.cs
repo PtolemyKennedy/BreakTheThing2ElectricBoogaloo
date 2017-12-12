@@ -40,8 +40,8 @@ public class MainMenu : MonoBehaviour {
         string adUnitId = "unexpected_platform";
 #endif
 
-        // Create a 320x50 banner at the top of the screen.
-        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
+        // Create a 320x50 banner at the bottom of the screen.
+        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder()
     .AddTestDevice(AdRequest.TestDeviceSimulator)       // Simulator.
@@ -66,6 +66,7 @@ public class MainMenu : MonoBehaviour {
     private void LoadLevel (string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        bannerView.Hide();
     }
 
     public void LookAtMenu(Transform menuTransform)
