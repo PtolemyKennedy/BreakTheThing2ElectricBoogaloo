@@ -11,6 +11,9 @@ public class AoECubeBreaker : MonoBehaviour
     /// the radius of effect of the explosive
     /// </summary>
     public float sploderRadius;
+    public GameObject explosionEffect;
+    public AudioClip explosionClip;
+    //public AudioSource explosionSource;
 
     /// <summary>
     /// the force the explosive applies to objects within its radius of effect
@@ -23,6 +26,8 @@ public class AoECubeBreaker : MonoBehaviour
         //add this button to the "explode the thing" buttons on click() so when it is clicked it calls the Explode() function
         UnityEngine.Events.UnityAction action1 = () => { Explode(); };
         GameObject.FindGameObjectWithTag("ExplodeTheThingButton").GetComponent<Button>().onClick.AddListener(action1);
+
+        
     }
 	
 	// Update is called once per frame
@@ -57,11 +62,17 @@ public class AoECubeBreaker : MonoBehaviour
             {
                 //add force
                 col.gameObject.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, sploderRadius);
+                
             }
         }
 
         //pretty explosion stuff
-
+        
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        //explosionSource.Play();
+        AudioSource.PlayClipAtPoint(explosionClip, transform.position);
+        
         Destroy(gameObject);
+        
     }
 }
