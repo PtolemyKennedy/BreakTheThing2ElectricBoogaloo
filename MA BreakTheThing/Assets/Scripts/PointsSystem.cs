@@ -74,18 +74,18 @@ public class PointsSystem : MonoBehaviour
         }
         if (Points >= TargetScore)
         {
-            //YouWin();
+            YouWin();
         }
 
         pointsText.text = "Points: " + Points;
     }
 
-    //private void YouWin()
-    //{
-    //    IsWin = true;
-    //    //temporary
-    //    GameObject.Find("Game Win").GetComponent<UnityEngine.UI.Text>().text = "You Win!";
-    //}
+    private void YouWin()
+    {
+        IsWin = true;
+        
+        GameObject.Find("Game Win").GetComponent<UnityEngine.UI.Text>().text = "You Win!";
+    }
 
     /// <summary>
     /// Adds base value to points

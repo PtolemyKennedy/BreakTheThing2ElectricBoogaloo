@@ -760,7 +760,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961222782553684}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 2.4143226, y: 0.000000024556268, z: -7.70458}
+  m_LocalPosition: {x: 1.1018668, y: 0.000000024556268, z: -4.192831}
   m_LocalScale: {x: 0.07660502, y: 0.07660502, z: 0.07660502}
   m_Children:
   - {fileID: 4695461388186936}
@@ -1755,7 +1755,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a931c65637cd71e41b5c413f0392b616, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.138
+  m_Volume: 0.064
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1811,7 +1811,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1836,6 +1836,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sploderRadius: 5
-  explosionEffect: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 2}
+  explosionEffect: {fileID: 100010, guid: d9f040813b2d42b4dbd65fc94d04eeec, type: 2}
   explosionClip: {fileID: 8300000, guid: 0fb6f68af3645374a950493869ba98bb, type: 3}
-  explosionForce: 500
+  explosionForce: 2500

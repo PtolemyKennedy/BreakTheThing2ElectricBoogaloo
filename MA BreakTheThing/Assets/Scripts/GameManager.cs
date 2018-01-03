@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SlowMo()
     {
-        StartCoroutine(SlowMo(0.3f, 0.15f, 2f));
+       // StartCoroutine(SlowMo(0.3f, 0.15f, 2f));
     }
 
     /// <summary>
