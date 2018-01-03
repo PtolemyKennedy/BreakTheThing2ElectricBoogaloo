@@ -14,6 +14,7 @@ public class PhPHandler : MonoBehaviour {
     public Uri AddScoresURL = new Uri("https://explosethething.000webhostapp.com/AddScore.php?");
     public Uri ShowLevelScoresURL = new Uri("https://explosethething.000webhostapp.com/ShowLevelScores.php?");
     public Uri ShowUsersURL = new Uri("https://explosethething.000webhostapp.com/ShowUsers.php?");
+    public Uri FindUserURL = new Uri("https://explosethething.000webhostapp.com/FindUser.php?");
 
     Uri showlevelscoresurl = new Uri("https://explosethething.000webhostapp.com/ShowLevelScores.php?");
     public string Output;
@@ -64,10 +65,14 @@ public class PhPHandler : MonoBehaviour {
     /// <summary>
     /// Adds the the SCORES table based on the contents of the 'User', 'Score' and 'Level' Inputfields
     /// </summary>
-    public void OnAddSCoreButtonClick()
+    public void OnAddScoreButtonClick()
     {
-        //AddScore(User, Score, Level);
-        AddScore();
+        AddScore(User, Score, Level);
+    }
+
+    public void OnFindUserButtonClick()
+    {
+        User = ConvertUserToId(User);
     }
 
     private string GetLevelScores(string level)
@@ -104,6 +109,23 @@ public class PhPHandler : MonoBehaviour {
 
     }
 
+    private string ConvertUserToId(string user)
+    {
+        WWW FindUser = new WWW(FindUserURL.OriginalString + "Name="+WWW.EscapeURL(user)); 
+        
+        
+
+        while (!FindUser.isDone) {}
+
+        if (FindUser.error != null)
+        {
+            print("There was an error getting users: " + FindUser.error);
+        }
+
+        string[] returnval = FindUser.text.Split(' ');
+        return returnval[0];
+    }
+
     private void AddUser(string User)
     {
         string hash = CreateMD5(User + secretKey);
@@ -118,7 +140,8 @@ public class PhPHandler : MonoBehaviour {
 
     }
 
-    private void AddScore(string User = "default", string Score = "1337", string Level = "1")
+
+    private void AddScore(string User, string Score, string Level)
     {
         print("User = " + User + " Score = " + Score + " Level = " + Level);
         string hash = CreateMD5(User + secretKey);
