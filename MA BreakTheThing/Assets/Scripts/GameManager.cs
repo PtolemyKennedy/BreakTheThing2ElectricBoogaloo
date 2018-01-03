@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject _MediumExplosive;
     public GameObject _LargeExplosive;
     public GameObject _Implosive;
+    public GameObject _NameInputField;
+    public GameObject _SubmitButton;
 
 
     //public struct Explosive
@@ -219,6 +221,26 @@ public class GameManager : MonoBehaviour
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
         yield return new WaitForSecondsRealtime(time2);
         Time.timeScale = 1;
+    }
+
+    public void ShowWinScreen()
+    {
+        _SubmitButton.SetActive(true);
+        _NameInputField.SetActive(true);
+    }
+
+    public void SubmitScore()
+    {
+        //get name from input field
+        string name = _NameInputField.GetComponent<InputField>().text;
+        //get points
+        int points = _PointsSystem.GetPoints();
+
+        //submit to database
+
+
+        //return to main menu
+        GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreenControl>().LoadScreen("MainMenu");
     }
 }
 

@@ -83,8 +83,7 @@ public class PointsSystem : MonoBehaviour
     private void YouWin()
     {
         IsWin = true;
-
-        SceneManager.LoadScene("Win");
+        GetComponent<GameManager>().ShowWinScreen();        
     }
 
     /// <summary>
