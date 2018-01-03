@@ -8,6 +8,9 @@ TagManager:
   - splodable
   - GameManager
   - Canvas
+  - DatabaseManager
+  - Dropdown
+  - DataBaseOutput
   layers:
   - Default
   - TransparentFX
