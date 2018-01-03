@@ -394,7 +394,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068527279767802}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 91d50d8b6efb88d449ff6359d55ac698, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -417,4 +417,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sploderRadius: 5
   explosionEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  explosionClip: {fileID: 0}
   explosionForce: 250

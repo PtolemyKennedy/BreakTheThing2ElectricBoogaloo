@@ -24,8 +24,15 @@ public class LoadingScreenControl : MonoBehaviour
         while (async.isDone == false)
         {
             slider.value = async.progress;
+
+            //if (async.progress == 0.5f)
+           // {
+                
+            //}
+
             if (async.progress == 0.9f)
             {
+                yield return new WaitForSeconds(1.5f);
                 slider.value = 1f;
                 async.allowSceneActivation = true;
             }
