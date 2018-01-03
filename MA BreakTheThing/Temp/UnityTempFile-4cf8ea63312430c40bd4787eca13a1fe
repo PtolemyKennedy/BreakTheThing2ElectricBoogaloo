@@ -1,0 +1,204 @@
+-debug
+-target:library
+-nowarn:0169
+-langversion:4
+-out:Temp\Assembly-CSharp.dll
+-unsafe
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll"
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll"
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_4_OR_NEWER
+-define:UNITY_5_5_OR_NEWER
+-define:UNITY_5_6_OR_NEWER
+-define:UNITY_2017_1_OR_NEWER
+-define:UNITY_2017_1_1
+-define:UNITY_2017_1
+-define:UNITY_2017
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_GENERICS
+-define:ENABLE_PVR_GI
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_RUNTIME_NAVMESH_BUILDING
+-define:ENABLE_SPRITERENDERER_FLIPPING
+-define:ENABLE_SPRITES
+-define:ENABLE_TERRAIN
+-define:ENABLE_RAKNET
+-define:ENABLE_DIRECTOR
+-define:ENABLE_UNET
+-define:ENABLE_LZMA
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES_COLLAB
+-define:ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_HUB
+-define:ENABLE_CLOUD_PROJECT_ID
+-define:ENABLE_CLOUD_SERVICES_USE_WEBREQUEST
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_WEBSOCKET_CLIENT
+-define:ENABLE_DIRECTOR_AUDIO
+-define:ENABLE_TIMELINE
+-define:ENABLE_EDITOR_METRICS
+-define:ENABLE_EDITOR_METRICS_CACHING
+-define:ENABLE_NATIVE_ARRAY
+-define:ENABLE_SPRITE_MASKING
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:ENABLE_MONO_BDWGC
+-define:PLATFORM_SUPPORTS_MONO
+-define:INCLUDE_PUBNUB
+-define:ENABLE_PLAYMODE_TESTS_RUNNER
+-define:ENABLE_VIDEO
+-define:ENABLE_RMGUI
+-define:ENABLE_CUSTOM_RENDER_TEXTURE
+-define:ENABLE_STYLE_SHEETS
+-define:PLATFORM_ANDROID
+-define:UNITY_ANDROID
+-define:UNITY_ANDROID_API
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_EGL
+-define:ENABLE_NETWORK
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_PURCHASING
+-define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
+-define:PLATFORM_SUPPORTS_ADS_ID
+-define:UNITY_CAN_SHOW_SPLASH_SCREEN
+-define:ENABLE_VR
+-define:ENABLE_UNITYADS_RUNTIME
+-define:UNITY_UNITYADS_API
+-define:ENABLE_MONO
+-define:NET_2_0_SUBSET
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+-define:ENABLE_NATIVE_ARRAY_CHECKS
+-define:UNITY_TEAM_LICENSE
+-define:ENABLE_VSTU
+-define:CROSS_PLATFORM_INPUT
+-define:MOBILE_INPUT
+-define:UNITY_HAS_GOOGLEVR
+Assets/okay/GoogleMobileAds/Api/AdFailedToLoadEventArgs.cs
+Assets/okay/GoogleMobileAds/Api/AdLoader.cs
+Assets/okay/GoogleMobileAds/Api/AdPosition.cs
+Assets/okay/GoogleMobileAds/Api/AdRequest.cs
+Assets/okay/GoogleMobileAds/Api/AdSize.cs
+Assets/okay/GoogleMobileAds/Api/BannerView.cs
+Assets/okay/GoogleMobileAds/Api/CustomNativeEventArgs.cs
+Assets/okay/GoogleMobileAds/Api/CustomNativeTemplateAd.cs
+Assets/okay/GoogleMobileAds/Api/Gender.cs
+Assets/okay/GoogleMobileAds/Api/InterstitialAd.cs
+Assets/okay/GoogleMobileAds/Api/Mediation/MediationExtras.cs
+Assets/okay/GoogleMobileAds/Api/MobileAds.cs
+Assets/okay/GoogleMobileAds/Api/NativeExpressAdView.cs
+Assets/okay/GoogleMobileAds/Api/Reward.cs
+Assets/okay/GoogleMobileAds/Api/RewardBasedVideoAd.cs
+Assets/okay/GoogleMobileAds/Common/DummyClient.cs
+Assets/okay/GoogleMobileAds/Common/IAdLoaderClient.cs
+Assets/okay/GoogleMobileAds/Common/IBannerClient.cs
+Assets/okay/GoogleMobileAds/Common/ICustomNativeTemplateClient.cs
+Assets/okay/GoogleMobileAds/Common/IInterstitialClient.cs
+Assets/okay/GoogleMobileAds/Common/IMobileAdsClient.cs
+Assets/okay/GoogleMobileAds/Common/INativeExpressAdClient.cs
+Assets/okay/GoogleMobileAds/Common/IRewardBasedVideoAdClient.cs
+Assets/okay/GoogleMobileAds/Common/Utils.cs
+Assets/okay/GoogleMobileAds/Platforms/Android/AdLoaderClient.cs
+Assets/okay/GoogleMobileAds/Platforms/Android/BannerClient.cs
+Assets/okay/GoogleMobileAds/Platforms/Android/CustomNativeTemplateClient.cs
+Assets/okay/GoogleMobileAds/Platforms/Android/InterstitialClient.cs
+Assets/okay/GoogleMobileAds/Platforms/Android/MobileAdsClient.cs
+Assets/okay/GoogleMobileAds/Platforms/Android/NativeExpressAdClient.cs
+Assets/okay/GoogleMobileAds/Platforms/Android/RewardBasedVideoAdClient.cs
+Assets/okay/GoogleMobileAds/Platforms/Android/Utils.cs
+Assets/okay/GoogleMobileAds/Platforms/GoogleMobileAdsClientFactory.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/AdLoaderClient.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/BannerClient.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/CustomNativeTemplateClient.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/Externs.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/InterstitialClient.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/MobileAdsClient.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/MonoPInvokeCallbackAttribute.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/NativeExpressAdClient.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/RewardBasedVideoAdClient.cs
+Assets/okay/GoogleMobileAds/Platforms/iOS/Utils.cs
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/AxisTouchButton.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/ButtonHandler.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/CrossPlatformInputManager.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/InputAxisScrollbar.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/Joystick.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/MobileControlRig.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/PlatformSpecific/MobileInput.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/PlatformSpecific/StandaloneInput.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/TiltInput.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/TouchPad.cs"
+"Assets/okay/Standard Assets/CrossPlatformInput/Scripts/VirtualInput.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/AfterburnerPhysicsForce.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/ExplosionFireAndDebris.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/ExplosionPhysicsForce.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/Explosive.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/ExtinguishableParticleSystem.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/FireLight.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/Hose.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/ParticleSystemMultiplier.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/SmokeParticles.cs"
+"Assets/okay/Standard Assets/ParticleSystems/Scripts/WaterHoseParticles.cs"
+"Assets/okay/Standard Assets/Utility/ActivateTrigger.cs"
+"Assets/okay/Standard Assets/Utility/AlphaButtonClickMask.cs"
+"Assets/okay/Standard Assets/Utility/AutoMobileShaderSwitch.cs"
+"Assets/okay/Standard Assets/Utility/AutoMoveAndRotate.cs"
+"Assets/okay/Standard Assets/Utility/CameraRefocus.cs"
+"Assets/okay/Standard Assets/Utility/CurveControlledBob.cs"
+"Assets/okay/Standard Assets/Utility/DragRigidbody.cs"
+"Assets/okay/Standard Assets/Utility/DynamicShadowSettings.cs"
+"Assets/okay/Standard Assets/Utility/EventSystemChecker.cs"
+"Assets/okay/Standard Assets/Utility/FollowTarget.cs"
+"Assets/okay/Standard Assets/Utility/ForcedReset.cs"
+"Assets/okay/Standard Assets/Utility/FOVKick.cs"
+"Assets/okay/Standard Assets/Utility/FPSCounter.cs"
+"Assets/okay/Standard Assets/Utility/LerpControlledBob.cs"
+"Assets/okay/Standard Assets/Utility/ObjectResetter.cs"
+"Assets/okay/Standard Assets/Utility/ParticleSystemDestroyer.cs"
+"Assets/okay/Standard Assets/Utility/PlatformSpecificContent.cs"
+"Assets/okay/Standard Assets/Utility/SimpleActivatorMenu.cs"
+"Assets/okay/Standard Assets/Utility/SimpleMouseRotator.cs"
+"Assets/okay/Standard Assets/Utility/SmoothFollow.cs"
+"Assets/okay/Standard Assets/Utility/TimedObjectActivator.cs"
+"Assets/okay/Standard Assets/Utility/TimedObjectDestructor.cs"
+"Assets/okay/Standard Assets/Utility/WaypointCircuit.cs"
+"Assets/okay/Standard Assets/Utility/WaypointProgressTracker.cs"
+Assets/Scripts/AoECubeBreaker.cs
+Assets/Scripts/GameManager.cs
+Assets/Scripts/HighscoreReader.cs
+Assets/Scripts/JointBreak.cs
+Assets/Scripts/LoadingScreenControl.cs
+Assets/Scripts/MainMenu.cs
+Assets/Scripts/PhPHandler.cs
+Assets/Scripts/PointsSystem.cs
+Assets/Scripts/Touch.cs
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\UnityScript.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\UnityScript.Lang.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\Boo.Lang.dll"
+-sdk:unity
