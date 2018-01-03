@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068527279767802}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.9656274, y: 0.0000000088717345, z: -5.5732675}
+  m_LocalPosition: {x: 2.0369961, y: 0.0000000088717345, z: -3.7672088}
   m_LocalScale: {x: 0.07561223, y: 0.07561225, z: 0.07561225}
   m_Children:
   - {fileID: 4285521366096096}
@@ -454,7 +454,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -479,6 +479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sploderRadius: 5
-  explosionEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
+  explosionEffect: {fileID: 100010, guid: 5fbb89a384ca0224faa527eff063ca7b, type: 2}
   explosionClip: {fileID: 8300000, guid: aba31d6da8033824f8c56c3d64b8dac4, type: 3}
-  explosionForce: 250
+  explosionForce: 1000

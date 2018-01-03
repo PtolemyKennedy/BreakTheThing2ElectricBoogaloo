@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LoadingScreen.unity
     guid: d9301486cff82954580bcf493774f973
+  - enabled: 1
+    path: Assets/Win.unity
+    guid: 1c629d1f1f5c2234194a36f762780c22

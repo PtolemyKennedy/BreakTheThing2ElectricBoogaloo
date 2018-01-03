@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 /// <summary>
 /// Local points recording for a level
 /// </summary>
@@ -74,18 +74,18 @@ public class PointsSystem : MonoBehaviour
         }
         if (Points >= TargetScore)
         {
-            //YouWin();
+            YouWin();
         }
 
         pointsText.text = "Points: " + Points;
     }
 
-    //private void YouWin()
-    //{
-    //    IsWin = true;
-    //    //temporary
-    //    GameObject.Find("Game Win").GetComponent<UnityEngine.UI.Text>().text = "You Win!";
-    //}
+    private void YouWin()
+    {
+        IsWin = true;
+
+        SceneManager.LoadScene("Win");
+    }
 
     /// <summary>
     /// Adds base value to points
