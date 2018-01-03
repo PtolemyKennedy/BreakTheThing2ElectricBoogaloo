@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 /// <summary>
 /// Local points recording for a level
 /// </summary>
@@ -83,8 +83,8 @@ public class PointsSystem : MonoBehaviour
     private void YouWin()
     {
         IsWin = true;
-        
-        GameObject.Find("Game Win").GetComponent<UnityEngine.UI.Text>().text = "You Win!";
+
+        SceneManager.LoadScene("Win");
     }
 
     /// <summary>
