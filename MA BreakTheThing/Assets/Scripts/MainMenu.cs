@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour {
     public GameObject levelButtonPrefab;
     public GameObject levelButtonContainer;
 
+    public GameObject _LoadingScreenControl;
+
     private Transform cameraTransform;
     private Transform cameraDesiredLookAt;
 
@@ -27,7 +29,7 @@ public class MainMenu : MonoBehaviour {
             container.transform.SetParent(levelButtonContainer.transform,false); //false here sets the location to the container
 
             string sceneName = thumbnail.name;
-            container.GetComponent<Button>().onClick.AddListener(() => LoadLevel(sceneName)); //called every time a button is clicked and changes depending on button
+            container.GetComponent<Button>().onClick.AddListener(() => _LoadingScreenControl.GetComponent<LoadingScreenControl>().LoadScreen(sceneName)); //called every time a button is clicked and changes depending on button
         }
         RequestBanner();
     }

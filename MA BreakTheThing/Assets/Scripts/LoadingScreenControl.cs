@@ -10,25 +10,21 @@ public class LoadingScreenControl : MonoBehaviour
 
     AsyncOperation async; //
 
-    public void LoadScreenExample()
+    public void LoadScreen(string sceneName)
     {
-        StartCoroutine(LoadingScreen());
+        StartCoroutine(LoadingScreen(sceneName));
+       
     }
 
-    IEnumerator LoadingScreen()
+    IEnumerator LoadingScreen(string sceneToLoad)
     {
         loadingScreenObj.SetActive(true);
-        async = SceneManager.LoadSceneAsync(0);
+        async = SceneManager.LoadSceneAsync(sceneToLoad);
         async.allowSceneActivation = false;
 
         while (async.isDone == false)
         {
             slider.value = async.progress;
-
-            //if (async.progress == 0.5f)
-           // {
-                
-            //}
 
             if (async.progress == 0.9f)
             {
