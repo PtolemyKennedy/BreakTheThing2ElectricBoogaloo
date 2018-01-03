@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4742587260327652}
   - component: {fileID: 33972070748654694}
   - component: {fileID: 23667699040877322}
-  - component: {fileID: 95317710868067110}
   - component: {fileID: 114204907635633636}
+  - component: {fileID: 82423066650187426}
   m_Layer: 0
   m_Name: smallExplosive
   m_TagString: Untagged
@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068527279767802}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.23, y: 1.358, z: -3.572}
+  m_LocalPosition: {x: 0.9656274, y: 0.0000000088717345, z: -5.5732675}
   m_LocalScale: {x: 0.07561223, y: 0.07561225, z: 0.07561225}
   m_Children:
   - {fileID: 4285521366096096}
@@ -387,23 +387,86 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068527279767802}
   m_Mesh: {fileID: 4300000, guid: 91d50d8b6efb88d449ff6359d55ac698, type: 3}
---- !u!95 &95317710868067110
-Animator:
-  serializedVersion: 3
+--- !u!82 &82423066650187426
+AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068527279767802}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: 91d50d8b6efb88d449ff6359d55ac698, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 991cb5c07a01e9f4aba6ed2eaa7de7fd, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.145
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114204907635633636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -417,5 +480,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sploderRadius: 5
   explosionEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
-  explosionClip: {fileID: 0}
+  explosionClip: {fileID: 8300000, guid: aba31d6da8033824f8c56c3d64b8dac4, type: 3}
   explosionForce: 250
