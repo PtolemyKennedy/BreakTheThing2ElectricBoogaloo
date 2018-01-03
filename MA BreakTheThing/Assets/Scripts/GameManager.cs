@@ -253,12 +253,15 @@ public class GameManager : MonoBehaviour
         {
             if (name == ExistingName)
             {
-                _PhPHandler.OnAddSCoreButtonClick();
+                _PhPHandler.OnFindUserButtonClick();
+                _PhPHandler.OnAddScoreButtonClick();
+                GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreenControl>().LoadScreen("MainMenu");
                 return;
             }
         }
         _PhPHandler.OnAddUserButtonClick();
-        _PhPHandler.OnAddSCoreButtonClick();
+        _PhPHandler.OnFindUserButtonClick();
+        _PhPHandler.OnAddScoreButtonClick();
 
         //return to main menu
         GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreenControl>().LoadScreen("MainMenu");
