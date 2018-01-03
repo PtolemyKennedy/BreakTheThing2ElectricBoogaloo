@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -67,10 +67,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
-  m_MinSize: {x: 881, y: 492}
-  m_MaxSize: {x: 16006, y: 14042}
+  m_MinSize: {x: 883, y: 492}
+  m_MaxSize: {x: 16008, y: 14042}
   vertical: 0
-  controlID: 126
+  controlID: 153
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -114,8 +114,8 @@ MonoBehaviour:
     y: 0
     width: 379
     height: 645
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -231,10 +231,10 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 1067
-  m_MinSize: {x: 604, y: 492}
-  m_MaxSize: {x: 12004, y: 14042}
+  m_MinSize: {x: 606, y: 492}
+  m_MaxSize: {x: 12006, y: 14042}
   vertical: 1
-  controlID: 1276
+  controlID: 10
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -256,10 +256,10 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 645
-  m_MinSize: {x: 604, y: 221}
-  m_MaxSize: {x: 12004, y: 4021}
+  m_MinSize: {x: 606, y: 221}
+  m_MaxSize: {x: 12006, y: 4021}
   vertical: 0
-  controlID: 1277
+  controlID: 11
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -350,20 +350,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Resources
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\1flynm56\Documents\GitHub\BreakTheThing2ElectricBoogaloo\MA
     BreakTheThing
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 80}
-    m_SelectedIDs: ba2c0000
-    m_LastClickedID: 11450
-    m_ExpandedIDs: 00000000a42a0000d82a0000b82c00009a2d0000a62d0000ae2d0000242e0000de2f0000e02f000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 8a270000
+    m_LastClickedID: 10122
+    m_ExpandedIDs: 000000008a270000be270000b6290000642a0000702a00007a2a0000f02a0000902d0000922d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -391,7 +391,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a42a0000d82a0000b82c00009a2d0000a62d0000ae2d0000242e0000de2f0000e02f0000
+    m_ExpandedIDs: 000000008a270000be270000b6290000642a0000702a00007a2a0000f02a0000902d0000922d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -507,9 +507,9 @@ MonoBehaviour:
     height: 624
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: e82a0000
     m_LastClickedID: 0
-    m_ExpandedIDs: da05ffffdc05ffffc6a1ffffa0fbffff00000000
+    m_ExpandedIDs: 3e15fdffac16fdff4219fdffda1afdff3e1efdff9821fdff2a26fdff8e29fdfff233fdff0635fdff3a36fdff7e36fdfffc36fdffbe38fdff423bfdff4a3bfdff463cfdff2e59fdff425afdff765bfdffba5bfdff385cfdfffa5dfdff7e60fdff8660fdff8261fdff60f6ffff1afcffff0000000084480000264a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -564,9 +564,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.9064586, y: -6.9848213, z: 23.329205}
+    m_Target: {x: 1.1593666, y: 4.1363215, z: 28.25504}
     speed: 2
-    m_Value: {x: 1.9064586, y: -6.9848213, z: 23.329205}
+    m_Value: {x: 1.1593666, y: 4.1363215, z: 28.25504}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -589,13 +589,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.15541345, y: -0.057164874, z: 0.009009025, w: -0.986153}
+    m_Target: {x: 0.043155376, y: -0.030869815, z: -0.0013344932, w: -0.99859047}
     speed: 2
-    m_Value: {x: -0.15541345, y: -0.057164874, z: 0.009009025, w: -0.986153}
+    m_Value: {x: 0.043155376, y: -0.030869815, z: -0.0013344932, w: -0.99859047}
   m_Size:
-    m_Target: 34.296997
+    m_Target: 35.478947
     speed: 2
-    m_Value: 34.296997
+    m_Value: 35.478947
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -675,7 +675,7 @@ MonoBehaviour:
       width: 1201.9769
       height: 1920
     m_MinimalGUI: 1
-  m_defaultScale: 1
+  m_defaultScale: 0.31614584
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
   m_LastWindowPixelSize: {x: 380, y: 624}
