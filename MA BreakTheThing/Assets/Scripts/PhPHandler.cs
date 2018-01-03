@@ -17,7 +17,7 @@ public class PhPHandler : MonoBehaviour {
 
     Uri showlevelscoresurl = new Uri("https://explosethething.000webhostapp.com/ShowLevelScores.php?");
     public string Output;
-
+    public string[] MultiOutput;
     public string User;
     public string Score;
     public string Level;
@@ -42,7 +42,7 @@ public class PhPHandler : MonoBehaviour {
     /// </summary>
     public void OnShowUsersButtonClick()
     {
-        Output = GetAllUsers();
+        MultiOutput = GetAllUsers();
     }
 
     /// <summary>
@@ -66,7 +66,8 @@ public class PhPHandler : MonoBehaviour {
     /// </summary>
     public void OnAddSCoreButtonClick()
     {
-        AddScore(User, Score, Level);
+        //AddScore(User, Score, Level);
+        AddScore();
     }
 
     private string GetLevelScores(string level)
@@ -84,7 +85,7 @@ public class PhPHandler : MonoBehaviour {
         return GetScores.text;
     }
 
-    private string GetAllUsers()
+    private string[] GetAllUsers()
     {
         //Works only with string literal for some reason
         WWW GetUsers = new WWW(ShowUsersURL.OriginalString); 
@@ -98,7 +99,8 @@ public class PhPHandler : MonoBehaviour {
             print("There was an error getting users: " + GetUsers.error);
         }
 
-        return GetUsers.text;
+        string[] returnval = GetUsers.text.Split(' ');
+        return returnval;
 
     }
 
@@ -116,13 +118,14 @@ public class PhPHandler : MonoBehaviour {
 
     }
 
-    private void AddScore(string User, string Score, string Level)
+    private void AddScore(string User = "default", string Score = "1337", string Level = "1")
     {
+        print("User = " + User + " Score = " + Score + " Level = " + Level);
         string hash = CreateMD5(User + secretKey);
-        Uri post_url = new Uri(AddUserURL +"Name=" + WWW.EscapeURL(User) + "Score=" + WWW.EscapeURL(Score) + "Level=" + WWW.EscapeURL(Level) + "&hash=" + hash);
-
+        Uri post_url = new Uri(AddScoresURL +"Name=" + WWW.EscapeURL(User) + "&Score=" + WWW.EscapeURL(Score) + "&Level=" + WWW.EscapeURL(Level) + "&hash=" + hash);
+        print(post_url.OriginalString);
         WWW post = new WWW(post_url.OriginalString);
-        while (!post.isDone) { }
+        while (!post.isDone) { print("sending"); }
         if (post.error != null)
         {
             print("There was an error posting score data: " + post.error);

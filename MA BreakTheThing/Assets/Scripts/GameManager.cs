@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject _NameInputField;
     public GameObject _SubmitButton;
 
+    private string LevelNumber;
 
     //public struct Explosive
     //{
@@ -41,8 +42,10 @@ public class GameManager : MonoBehaviour
     //Explosive laregExplosive = new Explosive(2, "largeExplosive");
     //Explosive implosive = new Explosive(3, "implosive");
 
-    public Touch _Touch;
-    public PointsSystem _PointsSystem;
+    private Touch _Touch;
+    private PointsSystem _PointsSystem;
+    private PhPHandler _PhPHandler;
+
 
     // Use this for initialization
     void Start ()
@@ -51,6 +54,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         _Touch = GetComponent<Touch>();
         _PointsSystem = GetComponent<PointsSystem>();
+        _PhPHandler = GetComponent<PhPHandler>();
 
         maxExplosives[0] = 3; //3 for test level
         maxExplosives[1] = 1;
@@ -58,6 +62,9 @@ public class GameManager : MonoBehaviour
         maxExplosives[3] = 1;
 
         CheckExplosivesUsed();
+
+        LevelNumber = SceneManager.GetActiveScene().name.Substring(6);
+        print(LevelNumber);
     }
 	
 	// Update is called once per frame
@@ -237,7 +244,21 @@ public class GameManager : MonoBehaviour
         int points = _PointsSystem.GetPoints();
 
         //submit to database
-
+        _PhPHandler.User = name;
+        _PhPHandler.Score = points.ToString();
+        _PhPHandler.Level = LevelNumber;
+        _PhPHandler.OnShowUsersButtonClick();
+        string[] names = _PhPHandler.MultiOutput;
+        foreach (var ExistingName in names)
+        {
+            if (name == ExistingName)
+            {
+                _PhPHandler.OnAddSCoreButtonClick();
+                return;
+            }
+        }
+        _PhPHandler.OnAddUserButtonClick();
+        _PhPHandler.OnAddSCoreButtonClick();
 
         //return to main menu
         GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreenControl>().LoadScreen("MainMenu");

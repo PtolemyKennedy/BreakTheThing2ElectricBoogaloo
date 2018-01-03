@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1807866228438064}
+  m_IsPrefabParent: 1
+--- !u!1 &1807866228438064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4208415248956588}
+  - component: {fileID: 114195786578012646}
+  - component: {fileID: 114609390081420848}
+  - component: {fileID: 114898480291117694}
+  - component: {fileID: 114416466188070606}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4208415248956588
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807866228438064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1925851, y: 0.6275015, z: 0.86141014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114195786578012646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807866228438064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46a18d402fb85d46bae9662f9bf78f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosivesUsed: 00000000000000000000000000000000
+  maxExplosives: 00000000000000000000000000000000
+  _SmallExplosive: {fileID: 0}
+  _MediumExplosive: {fileID: 0}
+  _LargeExplosive: {fileID: 0}
+  _Implosive: {fileID: 0}
+  _NameInputField: {fileID: 0}
+  _SubmitButton: {fileID: 0}
+--- !u!114 &114416466188070606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807866228438064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5176184ecbefe47b259c4a399632b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Output: 
+  User: 
+  Score: 
+  Level: 
+--- !u!114 &114609390081420848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807866228438064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281a91a66df6ca149bfd2e6210728f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GameManager: {fileID: 0}
+  cameraRotator: {fileID: 0}
+  mainCamera: {fileID: 0}
+  isFirstPerson: 0
+  isPlacingExplosive: 0
+  explosiveToPlace: 
+  pinchDeadzone: 50
+--- !u!114 &114898480291117694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807866228438064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6319366552fc07a45b6b2391f02c536c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JointBaseValue: 1
+  IsOverExplosivesCap: 0
+  ScoreCap: 10000
+  TargetScore: 5000
+  IsWin: 0
+  pointsText: {fileID: 0}
