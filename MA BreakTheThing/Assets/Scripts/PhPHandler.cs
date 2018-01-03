@@ -71,6 +71,7 @@ public class PhPHandler : MonoBehaviour {
 
     private string GetLevelScores(string level)
     {
+        Output = string.Empty;
         WWW GetScores = new WWW(showlevelscoresurl.OriginalString + "Level=" + WWW.EscapeURL(Level));
 
 

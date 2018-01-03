@@ -38,16 +38,15 @@ public class HighscoreReader : MonoBehaviour
 
     public void OnLevelDropdownChanged()
     {
-        Names.text = string.Empty;
-        Scores.text = string.Empty;
+        Names.text = "";
+        Scores.text = "";
         phpHandler.Level = (LevelDropdown.value + 1).ToString();
         phpHandler.OnShowScoresButtonClick();
         DatabaseOutput = phpHandler.Output;
         string[] namesAndScores = DatabaseOutput.Split(' ');
-
         for (int i = 0; i < namesAndScores.Length; i++)
         {
-            print(namesAndScores[i]);
+            print("Entry No. " + i + " " + namesAndScores[i]);
 
             if (i % 2 == 0)
             {
