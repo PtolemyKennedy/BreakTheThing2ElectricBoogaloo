@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         CheckExplosivesUsed();
 
         LevelNumber = SceneManager.GetActiveScene().name.Substring(6);
-        print(LevelNumber);
+        print("This is Level " + LevelNumber);
     }
 	
 	// Update is called once per frame
@@ -253,14 +253,14 @@ public class GameManager : MonoBehaviour
         {
             if (name == ExistingName)
             {
-                _PhPHandler.OnFindUserButtonClick();
+                _PhPHandler.ConvertNamesToIDs();
                 _PhPHandler.OnAddScoreButtonClick();
                 GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreenControl>().LoadScreen("MainMenu");
                 return;
             }
         }
         _PhPHandler.OnAddUserButtonClick();
-        _PhPHandler.OnFindUserButtonClick();
+        _PhPHandler.ConvertNamesToIDs();
         _PhPHandler.OnAddScoreButtonClick();
 
         //return to main menu

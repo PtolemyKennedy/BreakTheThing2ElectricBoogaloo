@@ -20,7 +20,7 @@ public class PhPHandler : MonoBehaviour {
     public InputField Score;
     public InputField Level;
 
-    public static string CreateMD5(string input)
+    private static string CreateMD5(string input)
     {
         MD5 md5 = MD5.Create();
         byte[] inputBytes = Encoding.ASCII.GetBytes(input);
@@ -35,22 +35,39 @@ public class PhPHandler : MonoBehaviour {
         return sb.ToString();
     }
 
+    /// <summary>
+    /// Populates a textfield 'Output' with the users
+    /// </summary>
     public void OnShowUsersButtonClick()
     {
         Output.text = GetAllUsers();
     }
 
+    /// <summary>
+    /// Populates a textfield 'Output' with names and scores for a level, the level is defined by a number given in an inputfield 'Level'
+    /// </summary>
     public void OnShowScoresButtonClick()
     {
         Output.text = GetLevelScores(Level.text);
     }
 
+    /// <summary>
+    /// Adds to the USER table based on the content of 'User' Inputfield
+    /// </summary>
     public void OnAddUserButtonClick()
     {
         AddUser(User.text);
     }
 
-    public string GetLevelScores(string level)
+    /// <summary>
+    /// Adds the the SCORES table based on the contents of the 'User', 'Score' and 'Level' Inputfields
+    /// </summary>
+    public void OnAddSCoreButtonClick()
+    {
+        AddScore(User.text, Score.text, Level.text);
+    }
+
+    private string GetLevelScores(string level)
     {
         WWW GetScores = new WWW("https://explosethething.000webhostapp.com/ShowLevelScores.php?" + "Level=" + WWW.EscapeURL(Level.text));
 
@@ -65,7 +82,7 @@ public class PhPHandler : MonoBehaviour {
         return GetScores.text;
     }
 
-    public string GetAllUsers()
+    private string GetAllUsers()
     {
         //Works only with string literal for some reason
         WWW GetUsers = new WWW("https://explosethething.000webhostapp.com/ShowUsers.php?"); 
@@ -83,7 +100,7 @@ public class PhPHandler : MonoBehaviour {
 
     }
 
-    public void AddUser(string User)
+    private void AddUser(string User)
     {
         string hash = CreateMD5(User + secretKey);
         string post_url = AddUserURL + "Name=" + WWW.EscapeURL(User) + "&hash=" + hash;
@@ -97,7 +114,7 @@ public class PhPHandler : MonoBehaviour {
 
     }
 
-    public void AddScore(string User, string Score, string Level)
+    private void AddScore(string User, string Score, string Level)
     {
         string hash = CreateMD5(User + secretKey);
         string post_url = AddUserURL + "Name=" + WWW.EscapeURL(User) + "&hash=" + hash;
