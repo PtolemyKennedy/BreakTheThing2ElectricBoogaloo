@@ -15,6 +15,7 @@ public class PhPHandler : MonoBehaviour {
     public Uri ShowLevelScoresURL = new Uri("https://explosethething.000webhostapp.com/ShowLevelScores.php?");
     public Uri ShowUsersURL = new Uri("https://explosethething.000webhostapp.com/ShowUsers.php?");
     public Uri FindUserURL = new Uri("https://explosethething.000webhostapp.com/FindUser.php?");
+    public Uri FindLevelURL = new Uri("https://explosethething.000webhostapp.com/FindLevel.php?");
 
     Uri showlevelscoresurl = new Uri("https://explosethething.000webhostapp.com/ShowLevelScores.php?");
     public string Output;
@@ -70,10 +71,15 @@ public class PhPHandler : MonoBehaviour {
         AddScore(User, Score, Level);
     }
 
-    public void OnFindUserButtonClick()
+    public void ConvertNamesToIDs()
     {
         User = ConvertUserToId(User);
+        print("Getting id of level " + Level);
+        Level = ConvertLevelToId(Level);
+        print("Id is " + Level);
     }
+
+    
 
     private string GetLevelScores(string level)
     {
@@ -123,6 +129,23 @@ public class PhPHandler : MonoBehaviour {
         }
 
         string[] returnval = FindUser.text.Split(' ');
+        return returnval[0];
+    }
+
+    private string ConvertLevelToId(string level)
+    {
+        WWW FindLevel = new WWW(FindLevelURL.OriginalString + "Level=" + WWW.EscapeURL(level));
+        while (!FindLevel.isDone) { }
+
+        print("full return is " + FindLevel.text);
+
+
+        if (FindLevel.error != null)
+        {
+            print("There was an error getting users: " + FindLevel.error);
+        }
+
+        string[] returnval = FindLevel.text.Split(' ');
         return returnval[0];
     }
 
