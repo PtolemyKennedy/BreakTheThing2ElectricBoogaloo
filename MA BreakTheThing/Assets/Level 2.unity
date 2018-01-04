@@ -1983,6 +1983,7 @@ GameObject:
   - component: {fileID: 1505313285}
   - component: {fileID: 1505313284}
   - component: {fileID: 1505313287}
+  - component: {fileID: 1505313288}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -2027,8 +2028,6 @@ MonoBehaviour:
   _Implosive: {fileID: 1631300454}
   _NameInputField: {fileID: 172771764}
   _SubmitButton: {fileID: 1807037103}
-  _Touch: {fileID: 0}
-  _PointsSystem: {fileID: 0}
 --- !u!4 &1505313286
 Transform:
   m_ObjectHideFlags: 0
@@ -2059,6 +2058,22 @@ MonoBehaviour:
   TargetScore: 5000
   IsWin: 0
   pointsText: {fileID: 1060257355}
+--- !u!114 &1505313288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1505313283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5176184ecbefe47b259c4a399632b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Output: 
+  MultiOutput: []
+  User: 
+  Score: 
+  Level: 
 --- !u!1 &1512211097
 GameObject:
   m_ObjectHideFlags: 0
@@ -3076,6 +3091,16 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114293189838778260, guid: 572a50bde6f647849aae43d863635686,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1505313285}
+    - target: {fileID: 114293189838778260, guid: 572a50bde6f647849aae43d863635686,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SubmitScore
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572a50bde6f647849aae43d863635686, type: 2}
