@@ -20,7 +20,10 @@ public class GameManager : MonoBehaviour
     public GameObject _MediumExplosive;
     public GameObject _LargeExplosive;
     public GameObject _Implosive;
+    public GameObject _NameInputField;
+    public GameObject _SubmitButton;
 
+    private string LevelNumber;
 
     //public struct Explosive
     //{
@@ -39,8 +42,10 @@ public class GameManager : MonoBehaviour
     //Explosive laregExplosive = new Explosive(2, "largeExplosive");
     //Explosive implosive = new Explosive(3, "implosive");
 
-    public Touch _Touch;
-    public PointsSystem _PointsSystem;
+    private Touch _Touch;
+    private PointsSystem _PointsSystem;
+    private PhPHandler _PhPHandler;
+
 
     // Use this for initialization
     void Start ()
@@ -49,6 +54,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         _Touch = GetComponent<Touch>();
         _PointsSystem = GetComponent<PointsSystem>();
+        _PhPHandler = GetComponent<PhPHandler>();
 
         maxExplosives[0] = 3; //3 for test level
         maxExplosives[1] = 1;
@@ -56,6 +62,9 @@ public class GameManager : MonoBehaviour
         maxExplosives[3] = 1;
 
         CheckExplosivesUsed();
+
+        LevelNumber = SceneManager.GetActiveScene().name.Substring(6);
+        print(LevelNumber);
     }
 	
 	// Update is called once per frame
@@ -82,7 +91,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SlowMo()
     {
-        StartCoroutine(SlowMo(0.3f, 0.15f, 2f));
+       // StartCoroutine(SlowMo(0.3f, 0.15f, 2f));
     }
 
     /// <summary>
@@ -219,6 +228,43 @@ public class GameManager : MonoBehaviour
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
         yield return new WaitForSecondsRealtime(time2);
         Time.timeScale = 1;
+    }
+
+    public void ShowWinScreen()
+    {
+        _SubmitButton.SetActive(true);
+        _NameInputField.SetActive(true);
+    }
+
+    public void SubmitScore()
+    {
+        //get name from input field
+        string name = _NameInputField.GetComponent<InputField>().text;
+        //get points
+        int points = _PointsSystem.GetPoints();
+
+        //submit to database
+        _PhPHandler.User = name;
+        _PhPHandler.Score = points.ToString();
+        _PhPHandler.Level = LevelNumber;
+        _PhPHandler.OnShowUsersButtonClick();
+        string[] names = _PhPHandler.MultiOutput;
+        foreach (var ExistingName in names)
+        {
+            if (name == ExistingName)
+            {
+                _PhPHandler.OnFindUserButtonClick();
+                _PhPHandler.OnAddScoreButtonClick();
+                GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreenControl>().LoadScreen("MainMenu");
+                return;
+            }
+        }
+        _PhPHandler.OnAddUserButtonClick();
+        _PhPHandler.OnFindUserButtonClick();
+        _PhPHandler.OnAddScoreButtonClick();
+
+        //return to main menu
+        GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreenControl>().LoadScreen("MainMenu");
     }
 }
 

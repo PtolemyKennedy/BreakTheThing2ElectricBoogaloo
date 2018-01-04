@@ -8,6 +8,10 @@ TagManager:
   - splodable
   - GameManager
   - Canvas
+  - DatabaseManager
+  - Dropdown
+  - DataBaseOutput
+  - LoadingScreen
   layers:
   - Default
   - TransparentFX
