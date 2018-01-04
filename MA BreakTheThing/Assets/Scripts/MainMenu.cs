@@ -7,11 +7,10 @@ using GoogleMobileAds.Api;
 
 public class MainMenu : MonoBehaviour {
     private BannerView bannerView;
-    // Use this for initialization
+
     public float cameraTransitionSpeed;
     public GameObject levelButtonPrefab;
     public GameObject levelButtonContainer;
-
     public GameObject _LoadingScreenControl;
 
     private Transform cameraTransform;
@@ -31,8 +30,10 @@ public class MainMenu : MonoBehaviour {
             string sceneName = thumbnail.name;
             container.GetComponent<Button>().onClick.AddListener(() => _LoadingScreenControl.GetComponent<LoadingScreenControl>().LoadScreen(sceneName)); //called every time a button is clicked and changes depending on button
         }
+
         RequestBanner();
     }
+
     private void RequestBanner()
     {
 
@@ -53,6 +54,7 @@ public class MainMenu : MonoBehaviour {
         // Load the banner with the request.
         bannerView.LoadAd(request);
     }
+
     private void Update()
     {
         if(cameraDesiredLookAt != null)
@@ -60,6 +62,7 @@ public class MainMenu : MonoBehaviour {
             cameraTransform.rotation = Quaternion.Slerp (cameraTransform.rotation, cameraDesiredLookAt.rotation, cameraTransitionSpeed * Time.deltaTime);
         }
     }
+
     public void QuitGame()
     {
         Application.Quit();

@@ -7,7 +7,6 @@ public class JointBreak : MonoBehaviour
 {
     PointsSystem _ps;
     FixedJoint fj;
-    //GameObject canvas;
 
 	// Use this for initialization
 	void Start ()
@@ -16,12 +15,6 @@ public class JointBreak : MonoBehaviour
         fj = GetComponent<FixedJoint>();
         //canvas = GameObject.FindGameObjectWithTag("Canvas");
 	}
-	
-	// Update is called once per frame
-	//void Update ()
- //   {
-		
-	//}
 
     //when the joint breaks score points relative to how difficult the joint was to break
     private void OnJointBreak(float breakForce)

@@ -11,41 +11,32 @@ public class AoECubeBreaker : MonoBehaviour
     /// the radius of effect of the explosive
     /// </summary>
     public float sploderRadius;
-    public GameObject explosionEffect;
-    public AudioClip explosionClip;
-    //public AudioSource explosionSource;
 
     /// <summary>
     /// the force the explosive applies to objects within its radius of effect
     /// </summary>
     public float explosionForce;
 
-	// Use this for initialization
-	void Start ()
+    public GameObject explosionEffect;
+    public AudioClip explosionClip;
+
+    // Use this for initialization
+    void Start ()
     {
         //add this button to the "explode the thing" buttons on click() so when it is clicked it calls the Explode() function
-        UnityEngine.Events.UnityAction action1 = () => { Explode(); };
-        GameObject.FindGameObjectWithTag("ExplodeTheThingButton").GetComponent<Button>().onClick.AddListener(action1);
-
-        
+        UnityEngine.Events.UnityAction action = () => { Explode(); };
+        GameObject.FindGameObjectWithTag("ExplodeTheThingButton").GetComponent<Button>().onClick.AddListener(action);       
     }
 	
-	// Update is called once per frame
-	//void Update ()
- //   {      
-       
- //   }
-
-        /// <summary>
-        /// finds all objects within a given radius of a point and adds them to the hitColliders array
-        /// </summary>
-        /// <param name="point">the central point of the sphere</param>
-        /// <param name="radius">the radius of the sphere</param>
+    /// <summary>
+    /// finds all objects within a given radius of a point and adds them to the hitColliders array
+    /// </summary>
+    /// <param name="point">the central point of the sphere</param>
+    /// <param name="radius">the radius of the sphere</param>
     void FindObjectsInRadius(Vector3 point, float radius)
     {
         hitColliders = Physics.OverlapSphere(point, radius);              
     }
-
 
     /// <summary>
     /// explodes the explosive applying force to all objects that can be exploded within its radius of effect
@@ -57,7 +48,7 @@ public class AoECubeBreaker : MonoBehaviour
 
         foreach (Collider col in hitColliders)
         {
-            //if it can be sploded
+            //if it can be exploded
             if (col.gameObject.tag == "splodable")
             {
                 //add force
@@ -66,10 +57,10 @@ public class AoECubeBreaker : MonoBehaviour
             }
         }
 
-        //pretty explosion stuff
-        
+        //pretty explosion stuff       
         Instantiate(explosionEffect, transform.position, transform.rotation);
-        //explosionSource.Play();
+
+        //play audio
         AudioSource.PlayClipAtPoint(explosionClip, transform.position);
         
         Destroy(gameObject);

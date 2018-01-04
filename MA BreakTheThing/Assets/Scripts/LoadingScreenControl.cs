@@ -8,12 +8,11 @@ public class LoadingScreenControl : MonoBehaviour
     public GameObject loadingScreenObj;
     public Slider slider;
 
-    AsyncOperation async; //
+    AsyncOperation async; 
 
     public void LoadScreen(string sceneName)
     {
-        StartCoroutine(LoadingScreen(sceneName));
-       
+        StartCoroutine(LoadingScreen(sceneName)); 
     }
 
     IEnumerator LoadingScreen(string sceneToLoad)
@@ -32,8 +31,8 @@ public class LoadingScreenControl : MonoBehaviour
                 slider.value = 1f;
                 async.allowSceneActivation = true;
             }
-            yield return null;
 
+            yield return null;
         }
     }
 }

@@ -85,7 +85,6 @@ public class PhPHandler : MonoBehaviour {
     {
         WWW GetScores = new WWW(showlevelscoresurl.OriginalString + "Level=" + WWW.EscapeURL(Level));
 
-
         while (!GetScores.isDone) { }
 
         if (GetScores.error != null)
@@ -99,9 +98,7 @@ public class PhPHandler : MonoBehaviour {
     private string[] GetAllUsers()
     {
         //Works only with string literal for some reason
-        WWW GetUsers = new WWW(ShowUsersURL.OriginalString); 
-        
-        
+        WWW GetUsers = new WWW(ShowUsersURL.OriginalString);               
 
         while (!GetUsers.isDone) {}
 
@@ -112,14 +109,11 @@ public class PhPHandler : MonoBehaviour {
 
         string[] returnval = GetUsers.text.Split(' ');
         return returnval;
-
     }
 
     private string ConvertUserToId(string user)
     {
-        WWW FindUser = new WWW(FindUserURL.OriginalString + "Name="+WWW.EscapeURL(user)); 
-        
-        
+        WWW FindUser = new WWW(FindUserURL.OriginalString + "Name="+WWW.EscapeURL(user));                 
 
         while (!FindUser.isDone) {}
 
@@ -138,7 +132,6 @@ public class PhPHandler : MonoBehaviour {
         while (!FindLevel.isDone) { }
 
         print("full return is " + FindLevel.text);
-
 
         if (FindLevel.error != null)
         {
@@ -160,7 +153,6 @@ public class PhPHandler : MonoBehaviour {
         {
             print("There was an error posting user data: " + post.error);
         }
-
     }
 
 
@@ -171,12 +163,12 @@ public class PhPHandler : MonoBehaviour {
         Uri post_url = new Uri(AddScoresURL +"Name=" + WWW.EscapeURL(User) + "&Score=" + WWW.EscapeURL(Score) + "&Level=" + WWW.EscapeURL(Level) + "&hash=" + hash);
         print(post_url.OriginalString);
         WWW post = new WWW(post_url.OriginalString);
+
         while (!post.isDone) { print("sending"); }
         if (post.error != null)
         {
             print("There was an error posting score data: " + post.error);
         }
-
     }
 }
 

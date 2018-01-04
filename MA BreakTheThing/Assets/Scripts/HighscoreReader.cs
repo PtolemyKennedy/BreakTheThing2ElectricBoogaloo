@@ -14,11 +14,11 @@ public class HighscoreReader : MonoBehaviour
         phpHandler      = GameObject.FindGameObjectWithTag("DatabaseManager").GetComponent<PhPHandler>();
         LevelDropdown   = GameObject.FindGameObjectWithTag("Dropdown").GetComponent<Dropdown>();
 
-        //don't judge me
         GameObject[] OutputBoxes = GameObject.FindGameObjectsWithTag("DataBaseOutput");
+
         foreach (var box in OutputBoxes)
         {
-            print(box.name);
+            //print(box.name);
             if (box.name == "Names")
             {
                 Names = box.GetComponent<Text>();
@@ -28,6 +28,7 @@ public class HighscoreReader : MonoBehaviour
                 Scores = box.GetComponent<Text>();
             }
         }
+
         OnLevelDropdownChanged();
     }
     // Update is called once per frame
@@ -47,8 +48,7 @@ public class HighscoreReader : MonoBehaviour
 
         for (int i = 0; i < namesAndScores.Length; i++)
         {
-            print(namesAndScores[i]);
-
+            //print(namesAndScores[i]);
             if (i % 2 == 0)
             {
                 Names.text = Names.text + namesAndScores[i] + '\n';
@@ -58,6 +58,5 @@ public class HighscoreReader : MonoBehaviour
                 Scores.text = Scores.text + namesAndScores[i] + '\n';
             }
         }
-
     }
 }

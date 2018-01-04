@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// number of explosives used in the current level
     /// </summary>
-    public int[] explosivesUsed = new int[] { 0,0,0,0 };
+    public int[] explosivesUsed = new int[] { 0, 0, 0, 0 };
 
     /// <summary>
     /// maximum number of explosives available for full score on the current level
@@ -25,23 +25,6 @@ public class GameManager : MonoBehaviour
 
     private string LevelNumber;
 
-    //public struct Explosive
-    //{
-    //    public int number;
-    //    public string name;
-
-    //    public Explosive(int p1, string p2)
-    //    {
-    //        number = p1;
-    //        name = p2;
-    //    }
-    //}
-
-    //Explosive smallExplosive = new Explosive(0, "smallExplosive");
-    //Explosive meidumExplosive = new Explosive(1, "mediumExplosive");
-    //Explosive laregExplosive = new Explosive(2, "largeExplosive");
-    //Explosive implosive = new Explosive(3, "implosive");
-
     private Touch _Touch;
     private PointsSystem _PointsSystem;
     private PhPHandler _PhPHandler;
@@ -56,30 +39,26 @@ public class GameManager : MonoBehaviour
         _PointsSystem = GetComponent<PointsSystem>();
         _PhPHandler = GetComponent<PhPHandler>();
 
-        maxExplosives[0] = 3; //3 for test level
+        LevelNumber = SceneManager.GetActiveScene().name.Substring(6);
+
+        maxExplosives[0] = 3; 
         maxExplosives[1] = 1;
         maxExplosives[2] = 1;
         maxExplosives[3] = 1;
 
         CheckExplosivesUsed();
 
-        LevelNumber = SceneManager.GetActiveScene().name.Substring(6);
-        print("This is Level " + LevelNumber);
+        
+        //print("This is Level " + LevelNumber);
     }
-	
-	// Update is called once per frame
-	//void Update ()
- //   {
-		
-	//}
 
     /// <summary>
     /// resets the scene
     /// </summary>
-    public void SceneReset()
-    {       
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    //public void SceneReset()
+    //{       
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    //}
 
     public void backToMenu()
     {
@@ -102,9 +81,6 @@ public class GameManager : MonoBehaviour
         _Touch.isFirstPerson = !_Touch.isFirstPerson;      
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public void PlaceSmallExplosive()
     {
         if (explosivesUsed[0] < maxExplosives[0])
@@ -123,6 +99,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     public void PlaceMediumExplosive()
     {
         if (explosivesUsed[1] < maxExplosives[1])
@@ -141,6 +118,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     public void PlaceLargeExplosive()
     {
         if (explosivesUsed[2] < maxExplosives[2])
@@ -158,6 +136,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     public void PlaceImplosive()
     {
         if (explosivesUsed[3] < maxExplosives[3])
@@ -249,6 +228,7 @@ public class GameManager : MonoBehaviour
         _PhPHandler.Level = LevelNumber;
         _PhPHandler.OnShowUsersButtonClick();
         string[] names = _PhPHandler.MultiOutput;
+
         foreach (var ExistingName in names)
         {
             if (name == ExistingName)
@@ -259,6 +239,7 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
+
         _PhPHandler.OnAddUserButtonClick();
         _PhPHandler.ConvertNamesToIDs();
         _PhPHandler.OnAddScoreButtonClick();

@@ -119,7 +119,6 @@ public class Touch : MonoBehaviour
                             break;
                     }
 
-
                     //check to see if the player is over the maximum explosives
                     _GameManager.CheckExplosivesUsed();
 
@@ -130,10 +129,10 @@ public class Touch : MonoBehaviour
         }
         else
         {
-        if (!isFirstPerson)
-        {
-        //rotation and height control
-        if (Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount == 1)
+            if (!isFirstPerson)
+            {
+                //rotation and height control
+                if (Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount == 1)
                 {
                     //rotate camera
                     if (touchPosition.x < Input.GetTouch(0).position.x)
@@ -146,6 +145,7 @@ public class Touch : MonoBehaviour
                         //rotate the camera right around the center
                         cameraRotator.GetComponent<Transform>().Rotate(new Vector3(0, -rotateSpeed, 0));
                     }
+
                     //move camera up and down
                     if (touchPosition.y < Input.GetTouch(0).position.y)
                     {
@@ -163,9 +163,9 @@ public class Touch : MonoBehaviour
                             cameraRotator.GetComponent<Transform>().Translate(new Vector3(0, -heightSpeed, 0));
                         }
                     }
+
                     touchPosition = Input.GetTouch(0).position;
                 }
-
             }
             else //use first person controls
             {
