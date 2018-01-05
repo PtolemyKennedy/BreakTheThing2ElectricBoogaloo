@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject _MediumExplosive;
     public GameObject _LargeExplosive;
     public GameObject _Implosive;
-    public GameObject _NameInputField;
-    public GameObject _SubmitButton;
+    public GameObject _EndGameWin;
+    public GameObject _EndGameLose;
 
     private string LevelNumber;
 
@@ -71,6 +71,11 @@ public class GameManager : MonoBehaviour
     public void SlowMo()
     {
        // StartCoroutine(SlowMo(0.3f, 0.15f, 2f));
+    }
+
+    public void CheckIfLose()
+    {
+        StartCoroutine(CheckIfLoseGame());
     }
 
     /// <summary>
@@ -209,16 +214,28 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    IEnumerator CheckIfLoseGame()
+    {
+        yield return new WaitForSeconds(5);
+
+        if (!_PointsSystem.IsWin)
+        {
+            //player has lost
+            _EndGameLose.SetActive(true);
+            //return to main menu
+            GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<LoadingScreenControl>().LoadScreen("MainMenu");
+        }
+    }
+
     public void ShowWinScreen()
     {
-        _SubmitButton.SetActive(true);
-        _NameInputField.SetActive(true);
+        _EndGameWin.SetActive(true);
     }
 
     public void SubmitScore()
     {
         //get name from input field
-        string name = _NameInputField.GetComponent<InputField>().text;
+        string name = _EndGameWin.GetComponentInChildren<InputField>().text;
         //get points
         int points = _PointsSystem.GetPoints();
 
